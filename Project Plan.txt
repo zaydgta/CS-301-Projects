@@ -1,0 +1,11 @@
+We are implementing a class called Number_bucket.
+
+The class Number_bucket will have the following functions:
+1. Setter
+2. Getter
+3. isEmpty()
+4. push(int n)
+5. pop()
+6. get_size()
+
+The 
