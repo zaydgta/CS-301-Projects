@@ -2,6 +2,7 @@
 #define NUMBER_BUCKET_H
 
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 class Number_bucket {
