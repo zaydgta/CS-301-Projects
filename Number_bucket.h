@@ -2,15 +2,27 @@
 #define NUMBER_BUCKET_H
 
 #include <iostream>
+#include <string>
+#include <cstring>
 #include <fstream>
+#include <vector>
 using namespace std;
 
 class Number_bucket {
+
+private:
+
+	// Variables
+	int m;
+	vector<int> bucket;
 
 public:
 
 	// Constructor
 	Number_bucket();
+
+	// Constructor for file input
+	Number_bucket(std::string inputFileName);
 
 	// Destructor
 	~Number_bucket();
