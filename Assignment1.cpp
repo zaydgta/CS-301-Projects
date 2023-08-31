@@ -83,10 +83,8 @@ int main() {
 
 	// Variables
 	ofstream outputFile;
-	//Number_bucket bucket;
 	Number_bucket bucket("testDataInput.txt");
 
-	
 	// All test cases to be implemented
 	// Test case 1
 
