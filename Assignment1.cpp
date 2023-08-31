@@ -89,8 +89,8 @@ int main() {
 	Number_bucket bucket4("testDataInput4.txt");
 	Number_bucket bucket5("testDataInput5.txt");
 
-	// All test cases to be implemented
-	// Test case 1
+	// All test cases
+	// Test case for bucket 1 (Adding numbers from the file to the bucket then outputting to a file)
 
 	cout << "The bucket is empty: 0 or 1 = " << bucket1.isEmpty() << endl;
 	cout << "The number on top of the bucket is currently = " << bucket1.top() << endl;
@@ -117,18 +117,39 @@ int main() {
 	cout << "The number on top of the bucket is currently = " << bucket1.top() << endl;
 	cout << "The current size of the bucket is currently = " << bucket1.get_size() << endl;
 
-	// Opens the output file;
-	outputFile.open("testDataOutput.txt");
+	// Opens the output file for bucket 1;
+	outputFile.open("testDataOutput1.txt");
 
-	// Outputs the data into the output file
-	while (bucket1.top() != NULL){
+	// Outputs the data by popping the elements of the bucket into the output file
+	//while (bucket1.top() != NULL){
+	while (bucket1.isEmpty() == false){
+		
 		outputFile << bucket1.top() << " ";
 		bucket1.pop();
 	}
 
-	// Closes the output file
+	if (bucket1.isEmpty() == true){
+		outputFile << "The bucket is empty" << endl;
+	}
+
+	// Closes the output file for bucket 1
 	outputFile.close();
 
+
+	// Test case for bucket 2 (Adding numbers from a file then popping only one number then outputting to a file)
+	
+	// Test case for bucket 3 (Adding numbers from a file then popping all of them making the bucket empty then outputting to a file)
+	
+	// Test case for bucket 4 (Opening an empty input file then outputting)
+	
+	// Test case for bucket 5 (Adding big amount of numbers from a file and adding numbers
+	// manually then performing a bunch of different operations then outputting result)
+
+
+
+
+
+	
 	// Ends the program
 	return 0;
 }
