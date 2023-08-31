@@ -83,43 +83,47 @@ int main() {
 
 	// Variables
 	ofstream outputFile;
-	Number_bucket bucket("testDataInput.txt");
+	Number_bucket bucket1("testDataInput1.txt");
+	Number_bucket bucket2("testDataInput2.txt");
+	Number_bucket bucket3("testDataInput3.txt");
+	Number_bucket bucket4("testDataInput4.txt");
+	Number_bucket bucket5("testDataInput5.txt");
 
 	// All test cases to be implemented
 	// Test case 1
 
-	cout << "The bucket is empty: 0 or 1 = " << bucket.isEmpty() << endl;
-	cout << "The number on top of the bucket is currently = " << bucket.top() << endl;
-	cout << "The current size of the bucket is currently = " << bucket.get_size() << endl;
+	cout << "The bucket is empty: 0 or 1 = " << bucket1.isEmpty() << endl;
+	cout << "The number on top of the bucket is currently = " << bucket1.top() << endl;
+	cout << "The current size of the bucket is currently = " << bucket1.get_size() << endl;
 
-	bucket.pop();
+	bucket1.pop();
 	cout << "POP!!!!" << endl;
 
-	cout << "The bucket is empty: 0 or 1 = " << bucket.isEmpty() << endl;
-	cout << "The number on top of the bucket is currently = " << bucket.top() << endl;
-	cout << "The current size of the bucket is currently = " << bucket.get_size() << endl;
+	cout << "The bucket is empty: 0 or 1 = " << bucket1.isEmpty() << endl;
+	cout << "The number on top of the bucket is currently = " << bucket1.top() << endl;
+	cout << "The current size of the bucket is currently = " << bucket1.get_size() << endl;
 
-	bucket.pop();
+	bucket1.pop();
 	cout << "POP!!!!" << endl;
 
-	cout << "The bucket is empty: 0 or 1 = " << bucket.isEmpty() << endl;
-	cout << "The number on top of the bucket is currently = " << bucket.top() << endl;
-	cout << "The current size of the bucket is currently = " << bucket.get_size() << endl;
+	cout << "The bucket is empty: 0 or 1 = " << bucket1.isEmpty() << endl;
+	cout << "The number on top of the bucket is currently = " << bucket1.top() << endl;
+	cout << "The current size of the bucket is currently = " << bucket1.get_size() << endl;
 
-	bucket.pop();
+	bucket1.pop();
 	cout << "POP!!!!" << endl;
 
-	cout << "The bucket is empty: 0 or 1 = " << bucket.isEmpty() << endl;
-	cout << "The number on top of the bucket is currently = " << bucket.top() << endl;
-	cout << "The current size of the bucket is currently = " << bucket.get_size() << endl;
+	cout << "The bucket is empty: 0 or 1 = " << bucket1.isEmpty() << endl;
+	cout << "The number on top of the bucket is currently = " << bucket1.top() << endl;
+	cout << "The current size of the bucket is currently = " << bucket1.get_size() << endl;
 
 	// Opens the output file;
 	outputFile.open("testDataOutput.txt");
 
 	// Outputs the data into the output file
-	while (bucket.top() != NULL){
-		outputFile << bucket.top() << " ";
-		bucket.pop();
+	while (bucket1.top() != NULL){
+		outputFile << bucket1.top() << " ";
+		bucket1.pop();
 	}
 
 	// Closes the output file
