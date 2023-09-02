@@ -6,6 +6,7 @@
 Permutations::Permutations() {
 
 	n = 0;
+	k = 0;
 	num = { NULL };
 };
 
@@ -16,6 +17,7 @@ Permutations::Permutations(string inputFileName) {
 	ifstream inputFile;
 	int m;
 	n = 0;
+	k = 0;
 	num = { NULL };
 
 	// Opens the input file
@@ -25,7 +27,6 @@ Permutations::Permutations(string inputFileName) {
 	while (inputFile >> m) {
 
 		add(n, m);
-		n++;
 	}
 
 	// Closes the input file
@@ -33,8 +34,6 @@ Permutations::Permutations(string inputFileName) {
 
 	// Sorts the vector
 	bubbleSort();
-
-	k = num[n];
 };
 
 // Destructor
@@ -55,6 +54,9 @@ void Permutations::bubbleSort(){
 			}
 		}
 	}
+
+	k = num[n-1];
+	cout << "k is equal to " << k << endl;
 }
 
 // Swaps the two integers
@@ -69,12 +71,16 @@ void Permutations::swap(int a, int b) {
 // Swaps all integers to get every permutation
 void Permutations::allPermutations() {
 	
+
+	int i = 1;
 	// k is the mobile element
 
 	printPermutations();
 
-	if (num[n] > num[n-1] && num[n] == k) {
-		swap(num[n], num[n - 1]);
+	while (num[n-i] > num[n-i-1] && num[n-i] == k) {
+		//cout << "k, num[n-1], num[n-2] are = " << k << ", " << num[n - 1] << ", " << num[n - 2] << endl;
+		swap(n-i, n-i-1);
+		i++;
 	}
 
 	printPermutations();
@@ -85,9 +91,9 @@ void Permutations::allPermutations() {
 void Permutations::add(int a, int b) {
 
 	num.insert(num.begin() + a, b);
-	cout << num[a] << endl;
-
 	n++;
+
+	cout << num[a] << endl;
 };
 
 // Removes an integer from the vector.
