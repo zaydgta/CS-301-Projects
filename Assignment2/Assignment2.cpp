@@ -6,7 +6,6 @@
 Permutations::Permutations() {
 
 	n = 0;
-
 	num = { NULL };
 };
 
@@ -25,33 +24,85 @@ Permutations::Permutations(string inputFileName) {
 	// Reads the data into the variable m then adds it to the vector
 	while (inputFile >> m) {
 
-		add(m, n);
+		add(n, m);
 		n++;
 	}
 
 	// Closes the input file
 	inputFile.close();
+
+	// Sorts the vector
+	bubbleSort();
+
+	k = num[n];
 };
 
 // Destructor
 Permutations::~Permutations() {
 };
 
+// Sorts the vector using bubbleSort algorithm
+// Include citationsssssssssssssssssssssssssss
+void Permutations::bubbleSort(){
+	
+	int i, j;
+	
+	for (i = 0; i < n - 1; i++) {
+		for (j = 0; j < n - i - 1; j++) {
+			if (num[j] > num[j + 1]) {
+
+				swap(j, j+1);
+			}
+		}
+	}
+}
+
 // Swaps the two integers
 void Permutations::swap(int a, int b) {
+	
+	int temp = num[a];
+	num[a] = num[b];
+	num[b] = temp;
+}
 
+
+// Swaps all integers to get every permutation
+void Permutations::allPermutations() {
+	
+	// k is the mobile element
+
+	printPermutations();
+
+	if (num[n] > num[n-1] && num[n] == k) {
+		swap(num[n], num[n - 1]);
+	}
+
+	printPermutations();
 };
+
 
 // Adds an integer into the vector.
 void Permutations::add(int a, int b) {
 
 	num.insert(num.begin() + a, b);
+	cout << num[a] << endl;
+
+	n++;
 };
 
 // Removes an integer from the vector.
 void Permutations::remove(int a) {
 
-	num.erase(num.begin() + a);
+	int i = 0;
+
+	while (a != num[i]) {
+	
+		i++;
+	}
+
+	if (a == num[i]) {
+		num.erase(num.begin() + i);
+	}
 };
 
 // Shows the number of elements currently in the vector.
@@ -66,12 +117,38 @@ void Permutations::printPermutations() {
 	int i = 0;
 	
 	while (i < n) {
-
+		cout << num[i] << " ";
+		i++;
 	};
+
+	cout << endl;
 };
 
-
 int main() {
+
+	ofstream outputFile;
+	Permutations group1;
+
+	// adding elements to the vector
+	cout << "adding numbers" << endl;
+	group1.add(0, 8);
+	group1.add(1, 5);
+	group1.add(2, 3);
+	group1.add(3, 1);
+
+	// prints the size of the vector
+	cout << "Size is: " << group1.getSize() << endl;
+
+	// prints the contents of the vector
+	group1.printPermutations();
+
+	group1.bubbleSort();
+
+	group1.printPermutations();
+
+	cout << "///////////////////////////////" << endl;
+
+	group1.allPermutations();
 
 	// Ends the program
 	return 0;

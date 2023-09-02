@@ -13,7 +13,7 @@ class Permutations {
 private:
 
 	// Variables
-	int n;
+	int n, k;
 	vector<int> num;
 
 public:
@@ -27,7 +27,10 @@ public:
 	// Destructor
 	~Permutations();
 
-	// Swaps the two elements in the vector
+	// Sorts the vector using bubbleSort algorithm
+	void bubbleSort();
+
+	// Swaps the two integers
 	void swap(int a, int b);
 
 	// Adds an integer to the vector.
@@ -38,6 +41,9 @@ public:
 
 	// Shows the number of elements currently in the vector.
 	int getSize() const;
+
+	// Swaps all integers to get every permutation
+	void allPermutations();
 
 	// Prints the vectors permutations
 	void printPermutations();
