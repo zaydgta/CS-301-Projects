@@ -1,161 +1,132 @@
-// Assignment2.cpp : This file contains the 'main' function. Program execution begins and ends there.
-
 #include "Permutations.h"
 
 // Constructor
-Permutations::Permutations() {
-
-	n = 0;
-	k = 0;
-	num = { NULL };
-};
-
-// Constructor for file input
-Permutations::Permutations(string inputFileName) {
-
-	// Variables
-	ifstream inputFile;
-	int m;
-	n = 0;
-	k = 0;
-	num = { NULL };
-
-	// Opens the input file
-	inputFile.open(inputFileName);
-
-	// Reads the data into the variable m then adds it to the vector
-	while (inputFile >> m) {
-
-		add(n, m);
-	}
-
-	// Closes the input file
-	inputFile.close();
-
-	// Sorts the vector
-	bubbleSort();
-};
+Permutations::Permutations(int n): setSize(n), permutation(n), direction(n, -1) {
+    
+    InitializeSet();
+}
 
 // Destructor
-Permutations::~Permutations() {
-};
+Permutations::~Permutations() {}
 
-// Sorts the vector using bubbleSort algorithm
-// Include citationsssssssssssssssssssssssssss
-void Permutations::bubbleSort(){
-	
-	int i, j;
-	
-	for (i = 0; i < n - 1; i++) {
-		for (j = 0; j < n - i - 1; j++) {
-			if (num[j] > num[j + 1]) {
+// Initializes the permutation vector with amount of numbers declared
+void Permutations::InitializeSet() {
+    for (int i = 0; i < setSize; ++i) {
+        permutation[i] = i + 1;
+    }
+}
 
-				swap(j, j+1);
-			}
-		}
-	}
+// Finds the biggest mobile element in the permutations vector
+bool Permutations::FindMobileElement(int& mobileIndex) {
+    
+    // Variables
+    mobileIndex = -1;
+    int mobile = -1;
 
-	k = num[n-1];
-	cout << "k is equal to " << k << endl;
+    // Finds the mobile element
+    for (int i = 0; i < setSize; ++i) {
+        int nextIndex = i + direction[i];
+        if (nextIndex >= 0 && nextIndex < setSize && permutation[i] > permutation[nextIndex]) {
+            if (permutation[i] > mobile) {
+                mobile = permutation[i];
+                mobileIndex = i;
+            }
+        }
+    }
+
+    // Returns true or false if mobile element is found
+    return (mobileIndex != -1);
 }
 
 // Swaps the two integers
-void Permutations::swap(int a, int b) {
-	
-	int temp = num[a];
-	num[a] = num[b];
-	num[b] = temp;
+void Permutations::Swap(int index1, int index2) {
+    swap(permutation[index1], permutation[index2]);
+    swap(direction[index1], direction[index2]);
 }
 
+// Reverses the directions of the specified element
+void Permutations::ReverseDirections(int k) {
+    for (int i = 0; i < setSize; ++i) {
+        if (permutation[i] > k) {
+            direction[i] = -direction[i];
+        }
+    }
+}
 
-// Swaps all integers to get every permutation
-void Permutations::allPermutations() {
-	
+// Generates all the permutations then prints them out
+void Permutations::GeneratePermutations() {
+    
+    // Variables
+    int count = 1;
+    int mobileIndex;
+    int factorial = getFactorial(setSize);
 
-	int i = 1;
-	// k is the mobile element
+    // Prints out number of permutations
+    cout << "There are " << factorial << " permutations of the set {";
+    for (int i = 0; i < setSize; ++i) {
+        cout << (i + 1);
+        if (i < setSize - 1) {
+            cout << ", ";
+        }
+    }
+    cout << "}:" << endl;
 
-	printPermutations();
+    // Prints out all the possbile permutations
+    while (count <= factorial) {
+        cout << setw(4) << count << ": ";
+        PrintPermutations();
+        count++;
 
-	while (num[n-i] > num[n-i-1] && num[n-i] == k) {
-		//cout << "k, num[n-1], num[n-2] are = " << k << ", " << num[n - 1] << ", " << num[n - 2] << endl;
-		swap(n-i, n-i-1);
-		i++;
-	}
+        if (!FindMobileElement(mobileIndex)) {
+            break;
+        }
 
-	printPermutations();
-};
+        int k = permutation[mobileIndex];
+        int nextIndex = mobileIndex + direction[mobileIndex];
+        Swap(mobileIndex, nextIndex);
+        ReverseDirections(k);
+    }
+}
 
+// Prints the permutations
+void Permutations::PrintPermutations() {
+    for (int i = 0; i < setSize; ++i) {
+        cout << permutation[i] << " ";
+    }
+    cout << endl;
+}
 
-// Adds an integer into the vector.
-void Permutations::add(int a, int b) {
+// Finds the number of permutations
+int Permutations::getFactorial(int n) {
+    if (n <= 1) {
+        return 1;
+    } else {
+        return n * getFactorial(n - 1);
+    }
+}
 
-	num.insert(num.begin() + a, b);
-	n++;
-
-	cout << num[a] << endl;
-};
-
-// Removes an integer from the vector.
-void Permutations::remove(int a) {
-
-	int i = 0;
-
-	while (a != num[i]) {
-	
-		i++;
-	}
-
-	if (a == num[i]) {
-		num.erase(num.begin() + i);
-	}
-};
-
-// Shows the number of elements currently in the vector.
-int Permutations::getSize() const {
-	
-	return n;
-};
-
-// Prints the vectors permutations
-void Permutations::printPermutations() {
-	
-	int i = 0;
-	
-	while (i < n) {
-		cout << num[i] << " ";
-		i++;
-	};
-
-	cout << endl;
-};
-
+// Main function
 int main() {
+    
+    // Variables
+    int n;
 
-	ofstream outputFile;
-	Permutations group1;
+    // Prints a message to the user
+    cout << "Enter n (1 <= n <= 25): ";
 
-	// adding elements to the vector
-	cout << "adding numbers" << endl;
-	group1.add(0, 8);
-	group1.add(1, 5);
-	group1.add(2, 3);
-	group1.add(3, 1);
+    // Asks user for input
+    cin >> n;
 
-	// prints the size of the vector
-	cout << "Size is: " << group1.getSize() << endl;
+    // Checks for valid input
+    while (n < 1 || n > 25) {
+        cout << "Invalid input. n must be between 1 and 25." << endl;
+        cin >> n;
+    }
 
-	// prints the contents of the vector
-	group1.printPermutations();
+    // Creates a permutations object
+    Permutations p(n);
+    p.GeneratePermutations();
 
-	group1.bubbleSort();
-
-	group1.printPermutations();
-
-	cout << "///////////////////////////////" << endl;
-
-	group1.allPermutations();
-
-	// Ends the program
-	return 0;
+    // Ends program
+    return 0;
 }
