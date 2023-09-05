@@ -1,3 +1,4 @@
 Program listing:
-1. Assignment2.cpp (The main cpp file)
-2. Permutations.h (The header file used by the main cpp file)
+1. Permutations.h (The header file that contains the predefined functions for the Permutations class)
+2. Permutations.cpp (The implementation cpp file that defines the functions in the header file)
+3. PermutationsDriver.cpp (The test driver cpp file that contains the test cases and the main program that utilizes the functions in the Permutations.h file and defined in the Permutations.cpp) 
