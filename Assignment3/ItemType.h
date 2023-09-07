@@ -20,3 +20,5 @@ public:
 private:
   int value;
 };
+
+#endif
