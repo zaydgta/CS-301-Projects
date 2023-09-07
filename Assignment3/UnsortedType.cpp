@@ -2,33 +2,35 @@
 // UnsortedType.
 
 #include "UnsortedType.h"
+
 struct NodeType {
-    ItemType info;
-    NodeType* next;
+	ItemType info;
+	NodeType* next;
 };
 
 // Class constructor
 UnsortedType::UnsortedType() {
-  length = 0;
-  listData = NULL;
+	length = 0;
+  	listData = NULL;
 }
 
 // Returns true if there is no room for another ItemType 
 //  on the free store; false otherwise.
 bool UnsortedType::IsFull() const {
-  NodeType* location;
-  try {
-    location = new NodeType;
-    delete location;
-    return false;
-  } catch(std::bad_alloc exception) {
-    return true;
-  }
+  	
+	NodeType* location;
+  	try {
+    		location = new NodeType;
+    		delete location;
+    		return false;
+  	} catch(std::bad_alloc exception) {
+    		return true;
+  	}
 }
 
 // Post: Number of items in the list is returned.
 int UnsortedType::GetLength() const {
-  return length;
+  	return length;
 }
 
 // Post: List is empty; all items have been deallocated.
@@ -64,25 +66,29 @@ void UnsortedType::PutItem(ItemType item) {
 //       list and a copy of that element has been stored in item;
 //       otherwise, item is unchanged. 
 ItemType UnsortedType::GetItem(ItemType& item, bool& found) {
-  bool moreToSearch;
-  NodeType* location;
+  
+	bool moreToSearch;
+  	NodeType* location;
 
-  location = listData;
-  found = false;
-  moreToSearch = (location != NULL);
+  	location = listData;
+  	found = false;
+  	moreToSearch = (location != NULL);
 
-  while (moreToSearch && !found) {
-    switch (item.ComparedTo(location->info)){
-      case LESS    : 
-      case GREATER : location = location->next;
-                     moreToSearch = (location != NULL);
-                     break;
-      case EQUAL   : found = true;
-                     item = location->info;
-                     break;
-    }
-  }
-  return item;
+  	while (moreToSearch && !found) {
+    		switch (item.ComparedTo(location->info)){
+      			case LESS    : 
+      			
+			case GREATER : location = location->next;
+                     	moreToSearch = (location != NULL);
+                     	break;
+			
+      			case EQUAL   : found = true;
+                     	item = location->info;
+                     	break;
+    		}
+  	}
+	
+  	return item;
 }
 
 // Pre:  item's key has been initialized.
@@ -94,47 +100,47 @@ void UnsortedType::DeleteItem(ItemType item) {
   	NodeType* tempLocation;
 
   // Locate node to be deleted.
-  if (item.ComparedTo(listData->info) == EQUAL) {
-    tempLocation = location;
-    listData = listData->next;		// Delete first node.
-  } else {
-    while (item.ComparedTo((location->next)->info) != EQUAL)
-      location = location->next;
+  	if (item.ComparedTo(listData->info) == EQUAL) {
+    		tempLocation = location;
+    	listData = listData->next;		// Delete first node.
+  	} else {
+    	while (item.ComparedTo((location->next)->info) != EQUAL)
+      		location = location->next;
 
-    // Delete node at location->next
-    tempLocation = location->next;
-    location->next = (location->next)->next;
-  }
-  delete tempLocation;
-  length--;
+    	// Delete node at location->next
+    	tempLocation = location->next;
+    	location->next = (location->next)->next;
+  	}
+  	
+	delete tempLocation;
+  	length--;
 }
 
 // Post: Current position has been initialized.
 void UnsortedType::ResetList() {
-  currentPos = NULL;
+  	currentPos = NULL;
 }
 
 // Post:  A copy of the next item in the list is returned.
 //        When the end of the list is reached, currentPos
 //        is reset to begin again.
 ItemType UnsortedType::GetNextItem(){
-  ItemType item;
-  if (currentPos == NULL)
-    currentPos = listData;
-  else
-    currentPos = currentPos->next;
-  item = currentPos->info;
-  return item;
+	ItemType item;
+  	if (currentPos == NULL)
+    		currentPos = listData;
+  	else
+    		currentPos = currentPos->next;
+  	item = currentPos->info;
+  	return item;
 }
 
 // Post: List is empty; all items have been deallocated.
 UnsortedType::~UnsortedType() {
-  NodeType* tempPtr;
+  	NodeType* tempPtr;
 
-  while (listData != NULL)
-  {
-    tempPtr = listData;
-    listData = listData->next;
-    delete tempPtr;
-  }
+  	while (listData != NULL){
+    		tempPtr = listData;
+    		listData = listData->next;
+    		delete tempPtr;
+  	}
 }
