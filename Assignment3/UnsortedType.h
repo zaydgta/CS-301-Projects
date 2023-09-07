@@ -1,5 +1,5 @@
-#ifndef UNSORTEDLIST_H
-#define UNSORTEDLIST_H
+#ifndef UNSORTEDTYPE_H
+#define UNSORTEDTYPE_H
 
 #include "ItemType.h" 
 // File ItemType.h must be provided by the user of this class. 
