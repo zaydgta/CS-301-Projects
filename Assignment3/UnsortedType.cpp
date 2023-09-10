@@ -20,11 +20,12 @@ bool UnsortedType::IsFull() const {
   	
 	NodeType* location;
   	try {
-    		location = new NodeType;
-    		delete location;
-    		return false;
+    	location = new NodeType;
+    	delete location;
+    	return false;
+
   	} catch(std::bad_alloc exception) {
-    		return true;
+    	return true;
   	}
 }
 
@@ -39,9 +40,9 @@ void UnsortedType::MakeEmpty(){
 	NodeType* tempPtr;
 
 	while (listData != NULL) {
-      		tempPtr = listData;
-      		listData = listData->next;
-      		delete tempPtr;
+      	tempPtr = listData;
+      	listData = listData->next;
+      	delete tempPtr;
   	}
   	
 	length = 0;
@@ -75,16 +76,16 @@ ItemType UnsortedType::GetItem(ItemType& item, bool& found) {
   	moreToSearch = (location != NULL);
 
   	while (moreToSearch && !found) {
-    		switch (item.ComparedTo(location->info)){
-      			case LESS    : 
+    	switch (item.ComparedTo(location->info)){
+      		case LESS: 
       			
-			case GREATER : location = location->next;
-                     	moreToSearch = (location != NULL);
-                     	break;
+			case GREATER: location = location->next;
+                 moreToSearch = (location != NULL);
+                 break;
 			
-      			case EQUAL   : found = true;
-                     	item = location->info;
-                     	break;
+      		case EQUAL: found = true;
+                item = location->info;
+                break;
     		}
   	}
 	
@@ -101,11 +102,12 @@ void UnsortedType::DeleteItem(ItemType item) {
 
   // Locate node to be deleted.
   	if (item.ComparedTo(listData->info) == EQUAL) {
-    		tempLocation = location;
+    	tempLocation = location;
     	listData = listData->next;		// Delete first node.
   	} else {
-    	while (item.ComparedTo((location->next)->info) != EQUAL)
-      		location = location->next;
+        while (item.ComparedTo((location->next)->info) != EQUAL) {
+            location = location->next;
+        }
 
     	// Delete node at location->next
     	tempLocation = location->next;
@@ -126,10 +128,12 @@ void UnsortedType::ResetList() {
 //        is reset to begin again.
 ItemType UnsortedType::GetNextItem(){
 	ItemType item;
-  	if (currentPos == NULL)
-    		currentPos = listData;
-  	else
-    		currentPos = currentPos->next;
+    if (currentPos == NULL) {
+        currentPos = listData;
+    } else {
+        currentPos = currentPos->next;
+    }
+
   	item = currentPos->info;
   	return item;
 }
@@ -139,8 +143,8 @@ UnsortedType::~UnsortedType() {
   	NodeType* tempPtr;
 
   	while (listData != NULL){
-    		tempPtr = listData;
-    		listData = listData->next;
-    		delete tempPtr;
+    	tempPtr = listData;
+    	listData = listData->next;
+    	delete tempPtr;
   	}
 }
