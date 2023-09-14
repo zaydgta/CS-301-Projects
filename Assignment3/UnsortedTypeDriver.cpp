@@ -48,6 +48,7 @@ int main(){
   	inFile >> command;
   	numCommands = 0;
 
+    // Gets the commands from the text file and executes it
   	while (command != "Quit"){ 
     	if (command == "PutItem"){
       		inFile >> number; 

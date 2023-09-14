@@ -1,0 +1,37 @@
+PutItem 1
+PutItem 2
+PutItem 3
+PutItem 4
+PutItem 5
+PrintList
+PutItem 6
+PrintList
+PutItem 7
+PrintList
+PutItem 8
+PrintList
+PutItem 9
+PrintList
+PutItem 10
+PrintList
+PutItem 11
+PrintList
+PutItem 12
+PrintList
+PutItem 13
+PrintList
+PutItem 14
+PrintList
+PutItem 15
+PrintList
+PutItem 16
+PrintList
+PutItem 17
+PrintList
+PutItem 18
+PrintList
+PutItem 19
+PrintList
+PutItem 20
+PrintList
+Quit
