@@ -1,5 +1,8 @@
 TestRun5
-Length is 0
-5 not in list.
-
+5 is in list
+Length is 1
+5 found in list.
+5
+List is not full.
+5 is deleted
 List is not full.

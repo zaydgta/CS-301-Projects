@@ -96,7 +96,7 @@ ItemType UnsortedType::GetItem(ItemType& item, bool& found) {
 //       An element in the list has a key that matches item's.
 // Post: No element in the list has a key that matches item's.
 void UnsortedType::DeleteItem(ItemType item) {
-  
+
 	NodeType* location = listData;
   	NodeType* tempLocation;
 

@@ -1,1 +1,9 @@
 TestRun4
+1 is in list
+6 is in list
+9 is in list
+961
+1 is deleted
+6 is deleted
+9 is deleted
+
