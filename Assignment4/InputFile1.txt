@@ -1,0 +1,15 @@
+GetLength
+PutItem 5
+PutItem 7
+PutItem 3
+PutItem 4
+GetItem 4
+GetItem 5
+GetItem 9
+GetItem 10
+IsFull
+DeleteItem 5
+PrintList
+MakeEmpty
+PrintList
+Quit
