@@ -10,7 +10,6 @@ using namespace std;
 
 void PrintList(ofstream& outFile, SortedType& list);
 
-
 int main(){
 
     ifstream inFile;       // file containing operations
@@ -68,17 +67,21 @@ int main(){
 
         } else if (command == "GetLength") {
             outFile << "Length is " << list.GetLength() << endl;
+
         } else if (command == "IsFull") {
             if (list.IsFull()) {
                 outFile << "List is full." << endl;
             } else {
                 outFile << "List is not full." << endl;
             }
+
         } else if (command == "MakeEmpty") {
             list.MakeEmpty();
             outFile << "List is empty." << endl;
+
         } else if (command == "PrintList") {
             PrintList(outFile, list);
+
         } else {
             cout << "Command not recognized." << endl;
         }

@@ -1,4 +1,3 @@
-GetLength
 PutItem 5
 PutItem 7
 PutItem 3
@@ -11,5 +10,18 @@ IsFull
 DeleteItem 5
 PrintList
 MakeEmpty
+PrintList
+PutItem 10
+PutItem 8
+PutItem 6
+PutItem 4
+PutItem 2
+PutItem 0
+PutItem 9
+PutItem 7
+PutItem 5
+PutItem 3
+PutItem 1
+GetLength
 PrintList
 Quit
