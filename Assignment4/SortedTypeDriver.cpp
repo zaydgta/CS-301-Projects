@@ -40,22 +40,25 @@ int main(){
     inFile >> command;
     numCommands = 0;
 
-    while (command != "Quit"){
+    while (command != "Q"){
+        /*
         if (command == "PutItem") {
             inFile >> number;
             item.Initialize(number);
             list.PutItem(item);
             item.Print(outFile);
             outFile << " is inserted" << endl;
-
-        } else if (command == "DeleteItem") {
+        */
+        } else if (command == "S") {
+        /*
             inFile >> number;
             item.Initialize(number);
             list.DeleteItem(item);
             item.Print(outFile);
             outFile << " is deleted" << endl;
-
-        } else if (command == "GetItem") {
+        */
+        } else if (command == "A") {
+        /*
             inFile >> number;
             item.Initialize(number);
             list.GetItem(item, found);
@@ -64,31 +67,45 @@ int main(){
             } else {
                 outFile << number << " not in list." << endl;
             }
-
-        } else if (command == "GetLength") {
+        */
+        } else if (command == "P") {
+        /*
             outFile << "Length is " << list.GetLength() << endl;
-
-        } else if (command == "IsFull") {
+        */
+        } else if (command == "T") {
+        /*
             if (list.IsFull()) {
                 outFile << "List is full." << endl;
             } else {
                 outFile << "List is not full." << endl;
+                */
             }
 
-        } else if (command == "MakeEmpty") {
+        } else if (command == "F") {
+        /*
             list.MakeEmpty();
             outFile << "List is empty." << endl;
-
-        } else if (command == "PrintList") {
+        */
+        } else if (command == "C") {
+        /*
             PrintList(outFile, list);
+        */
+        } else if (command == "G"){
 
-        } else {
+
+        } else if (command == "O"){
+
+        }
+
+        /*
+        else {
             cout << "Command not recognized." << endl;
         }
 
         numCommands++;
         cout <<  " Command number " << numCommands << " completed." << endl;
         inFile >> command;
+         */
     };
 
     cout << "Testing completed."  << endl;
@@ -116,4 +133,5 @@ void PrintList(ofstream& dataFile, SortedType& list) {
     }
 
     dataFile << endl;
+
 }
