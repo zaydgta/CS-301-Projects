@@ -1,4 +1,4 @@
-#include "SortedType.h"
+#include "GradeBook.h"
 
 struct NodeType {
   
@@ -7,13 +7,13 @@ struct NodeType {
 };
 
 // Class constructor
-SortedType::SortedType() {
+Grade::GradeBook() {
   
     length = 0;
     listData = NULL;
 }
 
-bool SortedType::IsFull() const {
+bool GradeBook::IsFull() const {
     NodeType* location;
     try {
         location = new NodeType;
@@ -24,11 +24,11 @@ bool SortedType::IsFull() const {
     }
 }
 
-int SortedType::GetLength() const {
+int GradeBook::GetLength() const {
     return length;
 }
 
-void SortedType::MakeEmpty() {
+void GradeBook::MakeEmpty() {
     NodeType* tempPtr;
 
     while (listData != NULL) {
@@ -40,7 +40,7 @@ void SortedType::MakeEmpty() {
     length = 0;
 }
 
-ItemType SortedType::GetItem(ItemType& item, bool& found) {
+ItemType GradeBook::GetItem(ItemType& item, bool& found) {
   
     bool moreToSearch;
     NodeType* location;
@@ -70,7 +70,7 @@ ItemType SortedType::GetItem(ItemType& item, bool& found) {
   return item;
 }
 
-void SortedType::PutItem(ItemType item) {
+void GradeBook::PutItem(ItemType item) {
   
     NodeType* newNode;  	// pointer to node being inserted
     NodeType* predLoc;  	// trailing pointer
@@ -113,7 +113,7 @@ void SortedType::PutItem(ItemType item) {
   length++;
 }
 
-void SortedType::DeleteItem(ItemType item) {
+void GradeBook::DeleteItem(ItemType item) {
     NodeType* location = listData;
     NodeType* tempLocation;
 
@@ -136,11 +136,11 @@ void SortedType::DeleteItem(ItemType item) {
     length--;
 }
 
-void SortedType::ResetList() {
+void GradeBook::ResetList() {
     currentPos = NULL;
 } 
 
-ItemType SortedType::GetNextItem() {
+ItemType GradeBook::GetNextItem() {
     
     ItemType item;
     if (currentPos == NULL) {
@@ -152,7 +152,7 @@ ItemType SortedType::GetNextItem() {
     return item;
 } 
 
-SortedType::~SortedType(){
+GradeBook::~GradeBook(){
     
     NodeType* tempPtr;
 
