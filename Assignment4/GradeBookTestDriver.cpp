@@ -5,10 +5,10 @@
 #include <cctype>
 #include <cstring>
 
-#include "SortedType.h"
+#include "GradeBook.h"
 using namespace std;
 
-void PrintList(ofstream& outFile, SortedType& list);
+void PrintList(ofstream& outFile, GradeBook& list);
 
 int main(){
 
@@ -20,7 +20,7 @@ int main(){
     string command;        // operation to be executed
     int number;
     ItemType item;
-    SortedType list;
+    GradeBook GradeBook1;
     bool found;
     int numCommands;
 
@@ -118,7 +118,7 @@ int main(){
 //       dataFile is open for writing.
 // Post: Each component in list has been written to dataFile.
 //       dataFile is still open.
-void PrintList(ofstream& dataFile, SortedType& list) {
+void PrintList(ofstream& dataFile, GradeBook& list) {
 
     int length;
     ItemType item;
