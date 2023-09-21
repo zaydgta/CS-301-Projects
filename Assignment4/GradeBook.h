@@ -1,8 +1,8 @@
-#ifndef SORTEDTYPE_H
-#define SORTEDTYPE_H
+#ifndef GRADEBOOK_H
+#define GRADEBOOK_H
 
 #include "ItemType.h"
-// Header file for Sorted List ADT.  
+// Header file for GradeBook which is a linked list ADT.  
 struct NodeType;
 
 class SortedType {
@@ -25,6 +25,7 @@ public:
 	void ResetList();
 	ItemType GetNextItem();
 
+/*
 	// New functions TEMPORARY
 
 	// Creates new semester
@@ -54,7 +55,8 @@ public:
 	// Saves the grade data into the file Grades.dat by overwriting it
 	// or creating a new one if not there then quits the program
 	void quit();			
-	
+
+*/
 private:
 
 	NodeType* listData;
