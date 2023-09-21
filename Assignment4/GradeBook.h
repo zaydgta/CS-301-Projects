@@ -5,15 +5,15 @@
 // Header file for GradeBook which is a linked list ADT.  
 struct NodeType;
 
-class SortedType {
+class GradeBook {
 
 public:
   
 	// Class constructor
-	SortedType();     
+	GradeBook();     
 
 	// Class destructor
-	~SortedType();
+	~GradeBook();
 
 	// Old functions
 	bool IsFull() const;
