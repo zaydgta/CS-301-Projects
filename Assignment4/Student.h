@@ -1,3 +1,6 @@
+#ifndef STUDENT_H
+#define STUDENT_H
+
 #include <iostream>
 using namespace std;
 
@@ -5,6 +8,7 @@ const int PROG_GRADE_SIZE = 6;
 const int TEST_GRADE_SIZE = 4;
 
 struct student {
+
     //Basic student info
     string firstName;
     string lastName;
@@ -21,9 +25,6 @@ struct student {
     float finalExamGrade;
     float finalGrade;
     
-
-    // New functions TEMPORARY
-
 	// Creates new semester
 	void createSemester(); 
 
@@ -52,3 +53,5 @@ struct student {
 	// or creating a new one if not there then quits the program
 	void quit();	
 }
+
+#endif
