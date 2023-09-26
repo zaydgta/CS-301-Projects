@@ -3,8 +3,12 @@
 #include <iostream>
 #include "ItemType.h"
 
+
 ItemType::ItemType() { 
     value = 0;
+    firstName = " ";
+    lastName = " ";
+    id = 0;
 }
 
 RelationType ItemType::ComparedTo(ItemType otherItem) const {
@@ -17,12 +21,18 @@ RelationType ItemType::ComparedTo(ItemType otherItem) const {
     }
 }
 
-void ItemType::Initialize(int number) {
+void ItemType::Initialize(int number, std::string firstName, std::string lastName, int id) {
     value = number;
+    firstName = firstName;
+    lastName = lastName;
+    id = id;
 }
 
 // pre:  out has been opened.
 // post: value has been sent to the stream out.
 void ItemType::Print(std::ostream& out) const {
-    out << value;
+    out << value << std::endl;
+    out << firstName << std::endl;
+    out << lastName << std::endl;
+    out << id << std::endl;
 }

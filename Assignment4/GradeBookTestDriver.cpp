@@ -8,7 +8,7 @@
 #include "GradeBook.h"
 using namespace std;
 
-void PrintList(ofstream& outFile, GradeBook& list);
+void printGradeBook(ofstream& outFile, GradeBook& list);
 
 int main(){
 
@@ -58,16 +58,26 @@ int main(){
             outFile << " is deleted" << endl;
         */
         } else if (command == "A") {
-        /*
-            inFile >> number;
-            item.Initialize(number);
-            list.GetItem(item, found);
-            if (found) {
-                outFile << number << " found in list." << endl;
-            } else {
-                outFile << number << " not in list." << endl;
-            }
-        */
+            
+            string firstName, lastName;
+            int id;
+            
+            cout << "Input student's first name: " << endl;
+            cin >> firstName;
+            
+            cout << "Input student's last name: " << endl;
+            cin >> lastName;
+            
+            cout << "Input student's id: " << endl;
+            cin >> id;
+            
+            int length = GradeBook1.GetLength();
+            
+            item.Initialize(length, firstName, lastName, id);
+            GradeBook1.createStudent(item);
+            
+            printGradeBook(outFile, GradeBook1);
+    
         } else if (command == "P") {
         /*
             outFile << "Length is " << list.GetLength() << endl;
@@ -119,17 +129,17 @@ int main(){
 //       dataFile is open for writing.
 // Post: Each component in list has been written to dataFile.
 //       dataFile is still open.
-void PrintList(ofstream& dataFile, GradeBook& list) {
+void printGradeBook(ofstream& dataFile, GradeBook& GradeBook1) {
 
     int length;
     ItemType item;
 
-    list.ResetList();
-    length = list.GetLength();
+    GradeBook1.ResetList();
+    length = GradeBook1.GetLength();
     for (int counter = 1; counter <= length; counter++){
 
         ItemType item;
-        item = list.GetNextItem();
+        item = GradeBook1.GetNextItem();
         item.Print(dataFile);
     }
 

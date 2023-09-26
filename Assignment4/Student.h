@@ -24,7 +24,7 @@ struct students {
     float testGrade[TEST_GRADE_SIZE];
     float finalExamGrade;
     float finalGrade;
-
+/*
 	// Creates new semester
 	void createSemester();
 
@@ -52,6 +52,8 @@ struct students {
 	// Saves the grade data into the file Grades.dat by overwriting it
 	// or creating a new one if not there then quits the program
 	void quit();
+	
+*/
 };
 
 #endif

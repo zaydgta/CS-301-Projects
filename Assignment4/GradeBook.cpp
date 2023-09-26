@@ -3,7 +3,6 @@
 
 struct NodeType {
 
-    students student;
     ItemType info;
     NodeType* next;
 };
@@ -163,4 +162,48 @@ GradeBook::~GradeBook(){
         listData = listData->next;
         delete tempPtr;
     }
+}
+
+// Creates new student
+void GradeBook::createStudent(ItemType item){
+    
+    NodeType* newNode;  	// pointer to node being inserted
+    NodeType* predLoc;  	// trailing pointer
+    NodeType* location; 	// traveling pointer
+    bool moreToSearch;
+
+    location = listData;
+    predLoc = NULL;
+    moreToSearch = (location != NULL);
+
+    // Find insertion point.
+    while (moreToSearch) {
+        switch(item.ComparedTo(location->info)) {
+            case GREATER:
+                predLoc = location;
+      	        location = location->next;
+                moreToSearch = (location != NULL);
+                break;
+
+            case LESS:
+                moreToSearch = false;
+                break;
+        }
+    }
+
+    // Prepare node for insertion
+    newNode = new NodeType;
+    newNode->info = item;
+
+    // Insert node into list
+    // Insert as first
+    if (predLoc == NULL){
+        newNode->next = listData;
+        listData = newNode;
+    } else {
+        newNode->next = location;
+        predLoc->next = newNode;
+    }
+
+  length++;
 }

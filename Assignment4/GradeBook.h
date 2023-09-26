@@ -25,12 +25,12 @@ public:
 	void ResetList();
 	ItemType GetNextItem();
 
-/*
+
 	// New functions TEMPORARY
 
 	// Creates new semester
-	void createSemester();
-
+	void createStudent(ItemType item);
+/*
 	// Creates new student
 	void createStudent();
 
