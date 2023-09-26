@@ -2,15 +2,15 @@
 #define GRADEBOOK_H
 
 #include "ItemType.h"
-// Header file for GradeBook which is a linked list ADT.  
+// Header file for GradeBook which is a linked list ADT.
 struct NodeType;
 
 class GradeBook {
 
 public:
-  
+
 	// Class constructor
-	GradeBook();     
+	GradeBook();
 
 	// Class destructor
 	~GradeBook();
@@ -20,7 +20,7 @@ public:
 	int GetLength() const;
 	void MakeEmpty();
 	ItemType GetItem(ItemType& item, bool& found);
-	void PutItem(ItemType item); 
+	void PutItem(ItemType item);
 	void DeleteItem(ItemType item);
 	void ResetList();
 	ItemType GetNextItem();
@@ -29,32 +29,32 @@ public:
 	// New functions TEMPORARY
 
 	// Creates new semester
-	void createSemester(); 
+	void createSemester();
 
-	// Creates new student 
-	void createStudent();  		
+	// Creates new student
+	void createStudent();
 
 	// Records assignments
-	void recordAssignment();	
+	void recordAssignment();
 
 	// Records tests
-	void recordTest();  
+	void recordTest();
 
 	// Records final exam
-	void recordFinalExam();  	
+	void recordFinalExam();
 
 	// Changes the grade
-	void changeGrade();		
+	void changeGrade();
 
 	// Calculates the final grade
-	void finalGrade();	
+	void calculateFinalGrade();
 
 	// Outputs the grade data into the file Grades.out
-	void outputGrade();		
+	void outputGrade();
 
 	// Saves the grade data into the file Grades.dat by overwriting it
 	// or creating a new one if not there then quits the program
-	void quit();			
+	void quit();
 
 */
 private:

@@ -49,7 +49,7 @@ int main(){
             item.Print(outFile);
             outFile << " is inserted" << endl;
         */
-        } else if (command == "S") {
+        if (command == "S") {
         /*
             inFile >> number;
             item.Initialize(number);
@@ -78,8 +78,9 @@ int main(){
                 outFile << "List is full." << endl;
             } else {
                 outFile << "List is not full." << endl;
-                */
+
             }
+            */
 
         } else if (command == "F") {
         /*
@@ -97,7 +98,7 @@ int main(){
 
         }
 
-        /*
+
         else {
             cout << "Command not recognized." << endl;
         }
@@ -105,7 +106,7 @@ int main(){
         numCommands++;
         cout <<  " Command number " << numCommands << " completed." << endl;
         inFile >> command;
-         */
+
     };
 
     cout << "Testing completed."  << endl;

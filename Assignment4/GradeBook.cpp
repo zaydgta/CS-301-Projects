@@ -1,14 +1,16 @@
 #include "GradeBook.h"
+#include "Student.h"
 
 struct NodeType {
-  
+
+    students student;
     ItemType info;
     NodeType* next;
 };
 
 // Class constructor
-Grade::GradeBook() {
-  
+GradeBook::GradeBook() {
+
     length = 0;
     listData = NULL;
 }
@@ -41,7 +43,7 @@ void GradeBook::MakeEmpty() {
 }
 
 ItemType GradeBook::GetItem(ItemType& item, bool& found) {
-  
+
     bool moreToSearch;
     NodeType* location;
 
@@ -51,17 +53,17 @@ ItemType GradeBook::GetItem(ItemType& item, bool& found) {
 
     while (moreToSearch && !found) {
         switch(item.ComparedTo(location->info)) {
-            case GREATER: 
+            case GREATER:
                 location = location->next;
                 moreToSearch = (location != NULL);
                 break;
 
-            case EQUAL:   
+            case EQUAL:
                 found = true;
                 item = location->info;
                 break;
 
-            case LESS:    
+            case LESS:
                 moreToSearch = false;
                 break;
         }
@@ -71,7 +73,7 @@ ItemType GradeBook::GetItem(ItemType& item, bool& found) {
 }
 
 void GradeBook::PutItem(ItemType item) {
-  
+
     NodeType* newNode;  	// pointer to node being inserted
     NodeType* predLoc;  	// trailing pointer
     NodeType* location; 	// traveling pointer
@@ -84,13 +86,13 @@ void GradeBook::PutItem(ItemType item) {
     // Find insertion point.
     while (moreToSearch) {
         switch(item.ComparedTo(location->info)) {
-            case GREATER: 
+            case GREATER:
                 predLoc = location;
       	        location = location->next;
                 moreToSearch = (location != NULL);
                 break;
 
-            case LESS:    
+            case LESS:
                 moreToSearch = false;
                 break;
         }
@@ -99,7 +101,7 @@ void GradeBook::PutItem(ItemType item) {
     // Prepare node for insertion
     newNode = new NodeType;
     newNode->info = item;
-    
+
     // Insert node into list
     // Insert as first
     if (predLoc == NULL){
@@ -138,22 +140,22 @@ void GradeBook::DeleteItem(ItemType item) {
 
 void GradeBook::ResetList() {
     currentPos = NULL;
-} 
+}
 
 ItemType GradeBook::GetNextItem() {
-    
+
     ItemType item;
     if (currentPos == NULL) {
         currentPos = listData;
     }
 
-    item = currentPos->info; 
+    item = currentPos->info;
     currentPos = currentPos->next;
     return item;
-} 
+}
 
 GradeBook::~GradeBook(){
-    
+
     NodeType* tempPtr;
 
     while (listData != NULL) {
