@@ -1,11 +1,11 @@
-// The following definitions go into file ItemType.cpp. 
+// The following definitions go into file ItemType.cpp.
 #include <fstream>
 #include <iostream>
 #include "ItemType.h"
 
 
-ItemType::ItemType() { 
-    
+ItemType::ItemType() {
+
     // Order of student on the list
     value = 0;
 
@@ -31,16 +31,17 @@ ItemType::ItemType() {
     finalG = 0;
 }
 
+// Compares the ItemType by last name then first name instead of value
 RelationType ItemType::ComparedTo(ItemType otherItem) const {
-    
+
     int lastNameComp = lName.compare(otherItem.lName);
-    
+
     if (lastNameComp < 0) {
         return LESS;
     } else if (lastNameComp> 0) {
         return GREATER;
     } else {
-        
+
         int firstNameComp = fName.compare(otherItem.fName);
 
         if (firstNameComp < 0) {
@@ -69,10 +70,8 @@ void ItemType::InitializeStudent(int number, std::string firstName, std::string 
     idN = id;
 }
 
-void ItemType::InitializeAssignments(int assignments[]) {
-    for (int i = 0; i < numAssignments; i++) {
-        assignmentsG[i] = assignments[i];
-    }
+void ItemType::InitializeAssignments(int assignmentNumber, int grade) {
+    assignmentsG[assignmentNumber] = grade;
 }
 
 void ItemType::InitializeTests(int tests[]) {
@@ -98,7 +97,7 @@ void ItemType::Print(std::ostream& out) const {
     out << numAssignments << std::endl;
     out << numTests << std::endl;
     out << numFinalExams << std::endl;
-    
+
     out << assignmentsW << std::endl;
     out << testsW << std::endl;
     out << finalExamsW << std::endl;

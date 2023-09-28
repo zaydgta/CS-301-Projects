@@ -1,5 +1,5 @@
-// The following declarations and definitions go into file 
-// ItemType.h. 
+// The following declarations and definitions go into file
+// ItemType.h.
 
 #ifndef ITEMTYPE_H
 #define ITEMTYPE_H
@@ -12,7 +12,7 @@
 const int MAX_ITEMS = 5;
 enum RelationType  {LESS, GREATER, EQUAL};
 
-class ItemType { 
+class ItemType {
 
 public:
 	ItemType();
@@ -21,13 +21,13 @@ public:
 
     void InitializeSemester(int numOfAssignments, int numOfTests, int numOffinalExam, int assignmnetWeight, int testWeight, int finalExamWeight);
 	void InitializeStudent(int number, std::string firstName, std::string lastName, int id);
-    void InitializeAssignments(int assignments[]);
+    void InitializeAssignments(int assignmentNumber, int grade);
     void InitializeTests(int tests[]);
     void InitializeFinalExams(int finalExams[]);
 
 
 	//Temp
-	//void printItem();	
+	//void printItem();
 
     // Order of student on the list
 	int value;

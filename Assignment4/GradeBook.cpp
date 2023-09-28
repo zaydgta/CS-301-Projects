@@ -123,7 +123,7 @@ GradeBook::~GradeBook(){
 
 // Creates new student
 void GradeBook::createStudent(ItemType item){
-    
+
     NodeType* newNode;  	// pointer to node being inserted
     NodeType* predLoc;  	// trailing pointer
     NodeType* location; 	// traveling pointer
@@ -167,16 +167,23 @@ void GradeBook::createStudent(ItemType item){
 
 // Incomplete, also remember the InitializeAssignments() function. Both need to be modified
 void GradeBook::recordAssignment(int number) {
-    
+
     int length = GetLength();
+    int grade;
+
+
+    ResetList();
+
+    cout << "You have chosen assignment number " << number << "." << endl;
+
     for (int counter = 0; counter < length; counter++) {
 
         ItemType item;
         item = GetNextItem();
-        
-        item;
 
+        cout << "Please enter the grade for the student " << item.fName << " " << item.lName << endl;
+        cin >> grade;
 
-
+        item.InitializeAssignments(number, grade);
     }
 };

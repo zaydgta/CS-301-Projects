@@ -4,7 +4,6 @@
 #include <string>
 #include <cctype>
 #include <cstring>
-
 #include "GradeBook.h"
 using namespace std;
 
@@ -45,17 +44,26 @@ int main(){
 
             // Variables
             int numOfAssignments, numOfTests, numOfFinalExams, assignmentsWeight, testsWeight, finalExamsWeight, totalWeight = 0;
-            
-            // Prompts the user for multiple things
-            cout << "Input number of assignments(0-6): " << endl;
-            cin >> numOfAssignments;
 
-            cout << "Input number of tests(0-4): " << endl;
-            cin >> numOfTests;
 
-            cout << "Input number of final exams(0-1): " << endl;
-            cin >> numOfFinalExams;
-            
+            // Checks if the number of assignments exceed the range
+            while (numOfAssignments < 0 || numOfAssignments > 6 || numOfTests < 0 || numOfTests > 4 || numOfFinalExams < 0 || numOfFinalExams > 1){
+
+                // Prompts the user for multiple things
+                cout << "Input number of assignments(0-6): " << endl;
+                cin >> numOfAssignments;
+
+                cout << "Input number of tests(0-4): " << endl;
+                cin >> numOfTests;
+
+                cout << "Input number of final exams(0-1): " << endl;
+                cin >> numOfFinalExams;
+
+                if (numOfAssignments < 0 || numOfAssignments > 6 || numOfTests < 0 || numOfTests > 4 || numOfFinalExams < 0 || numOfFinalExams > 1){
+                    cout << "The number of assignments, tests, and final exams is outside of the required range. Please re-enter them" << endl;
+                }
+            }
+
             // Checks if the total weight adds up to exactly 100%
             while (totalWeight != 100) {
 
@@ -79,21 +87,21 @@ int main(){
             item.InitializeSemester(numOfAssignments, numOfTests, numOfFinalExams, assignmentsWeight, testsWeight, finalExamsWeight);
 
         } else if (command == "A") {
-            
+
             // Variables
             string firstName, lastName;
             int id;
-            
+
             // Prompts the user for multiple things
             cout << "Input student's first name: " << endl;
             cin >> firstName;
-            
+
             cout << "Input student's last name: " << endl;
             cin >> lastName;
-            
+
             cout << "Input student's id: " << endl;
             cin >> id;
-            
+
             // Gets the length of the linked list(GradeBook1)
             int length = GradeBook1.GetLength();
 
@@ -102,22 +110,27 @@ int main(){
 
             // Adds the ItemType(item) into the linked list(GradeBook1) as a node
             GradeBook1.createStudent(item);
-    
+
         } else if (command == "P") {
-            
-            int i = 0, number, grade;
+
+            int number, grade, numAssignments;
 
             item = GradeBook1.GetNextItem();
 
-            int numAssignments = item.numAssignments;
+            numAssignments = item.numAssignments;
 
-            GradeBook1.ResetList();
+            // User inputs number for the required assignment -> go into the recordAssignment -> print all students names alphabetically
+            // -> put the grade for that student's assignment -> loop until all students grades are submitted -> input number for another required assignment
+            // -> repeat until all assignments are done
 
-            while (i < numAssignments) {
+            for (int i = 0; i < numAssignments; i++) {
                 cout << "Which programming assignment's grade do you want to record?" << endl;
                 cin >> number;
 
                 GradeBook1.recordAssignment(number);
+
+                // Implement an array that keeps track of the graded assignments
+
             }
 
         } else if (command == "T") {
