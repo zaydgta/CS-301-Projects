@@ -15,19 +15,19 @@ ItemType::ItemType() {
     idN = 0;
 
     //Weights of assignment (must = 100%)
-    assignmentW = 0;
-    testW = 0;
-    finalExamW = 0;
+    assignmentsW = 0;
+    testsW = 0;
+    finalExamsW = 0;
 
     // Number of all assignments
     numAssignments = 0;
     numTests = 0;
     numFinalExams = 0;
 
-    //Grades of all assignments
-    assignmentsG = 0;
-    testsG = 0;
-    finalExamsG = 0;
+    // Grades of all assignments
+    //assignmentsG = 0;
+    //testsG = 0;
+    //finalExamsG = 0;
     finalG = 0;
 }
 
@@ -57,9 +57,9 @@ void ItemType::InitializeSemester(int numOfAssignments, int numOfTests, int numO
     numAssignments = numOfAssignments;
     numTests = numOfTests;
     numFinalExams = numOfFinalExams;
-    assignmentW = assignmnetWeight;
-    testW = testWeight;
-    finalExamW = finalExamWeight;
+    assignmentsW = assignmnetWeight;
+    testsW = testWeight;
+    finalExamsW = finalExamWeight;
 }
 
 void ItemType::InitializeStudent(int number, std::string firstName, std::string lastName, int id) {
@@ -87,7 +87,6 @@ void ItemType::InitializeFinalExams(int finalExams[]) {
     }
 }
 
-
 // pre:  out has been opened.
 // post: value has been sent to the stream out.
 void ItemType::Print(std::ostream& out) const {
@@ -95,14 +94,13 @@ void ItemType::Print(std::ostream& out) const {
     out << fName << std::endl;
     out << lName << std::endl;
     out << idN << std::endl;
-}
 
-//Temp
-// pre:  out has been opened.
-// post: value has been sent to the stream out.
-//void ItemType::printItem(){
-  //  std::cout << value << std::endl;
-    //std::cout << fName << std::endl;
-    //std::cout << lName << std::endl;
-    //std::cout << idN << std::endl;
-//}
+    out << numAssignments << std::endl;
+    out << numTests << std::endl;
+    out << numFinalExams << std::endl;
+    
+    out << assignmentsW << std::endl;
+    out << testsW << std::endl;
+    out << finalExamsW << std::endl;
+
+}

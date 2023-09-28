@@ -1,17 +1,24 @@
-TestRun1
+testRun24
 1
-Hasib
-Alpha
-7
+Paul
+A
+4
+3
+2
+0
+50
+26
+24
 
 0
 Zayd
-Beta
-5
-
+H
+7
+3
 2
-Noor
-Delta
-90
+0
+50
+26
+24
 
 

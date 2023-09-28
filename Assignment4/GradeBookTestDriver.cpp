@@ -42,18 +42,49 @@ int main(){
 
     while (command != "Q"){
         if (command == "S") {
-        /*
-            inFile >> number;
-            item.Initialize(number);
-            list.DeleteItem(item);
-            item.Print(outFile);
-            outFile << " is deleted" << endl;
-        */
+
+            // Variables
+            int numOfAssignments, numOfTests, numOfFinalExams, assignmentsWeight, testsWeight, finalExamsWeight, totalWeight = 0;
+            
+            // Prompts the user for multiple things
+            cout << "Input number of assignments(0-6): " << endl;
+            cin >> numOfAssignments;
+
+            cout << "Input number of tests(0-4): " << endl;
+            cin >> numOfTests;
+
+            cout << "Input number of final exams(0-1): " << endl;
+            cin >> numOfFinalExams;
+            
+            // Checks if the total weight adds up to exactly 100%
+            while (totalWeight != 100) {
+
+                cout << "Input weight of programming assignments: " << endl;
+                cin >> assignmentsWeight;
+
+                cout << "Input weight of tests: " << endl;
+                cin >> testsWeight;
+
+                cout << "Input weight of final exam: " << endl;
+                cin >> finalExamsWeight;
+
+                totalWeight = assignmentsWeight + testsWeight + finalExamsWeight;
+
+                if (totalWeight != 100) {
+                    cout << "Total weight for assignments has exceeded 100%. Please re-enter the weights" << endl;
+                }
+            }
+
+            // Initializes the itemType class with the required variables
+            item.InitializeSemester(numOfAssignments, numOfTests, numOfFinalExams, assignmentsWeight, testsWeight, finalExamsWeight);
+
         } else if (command == "A") {
             
+            // Variables
             string firstName, lastName;
             int id;
             
+            // Prompts the user for multiple things
             cout << "Input student's first name: " << endl;
             cin >> firstName;
             
@@ -63,10 +94,13 @@ int main(){
             cout << "Input student's id: " << endl;
             cin >> id;
             
+            // Gets the length of the linked list(GradeBook1)
             int length = GradeBook1.GetLength();
 
+            // Initializes the student information into the ItemType class
             item.InitializeStudent(length, firstName, lastName, id);
 
+            // Adds the ItemType(item) into the linked list(GradeBook1) as a node
             GradeBook1.createStudent(item);
     
         } else if (command == "P") {
@@ -110,6 +144,7 @@ int main(){
 
     };
 
+    // Temporary print function
     printGradeBook(outFile, GradeBook1);
 
     cout << "Testing completed."  << endl;

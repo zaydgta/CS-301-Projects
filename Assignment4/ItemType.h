@@ -38,9 +38,9 @@ public:
 	int idN;
 
     //Weights of assignment (must = 100%)
-    int assignmentW;
-    int testW;
-    int finalExamW;
+    int assignmentsW;
+    int testsW;
+    int finalExamsW;
 
     // Number of all assignments
     int numAssignments;
@@ -48,9 +48,9 @@ public:
     int numFinalExams;
 
     //Grades of all assignments
-    vector<float> assignmentsG;
-    vector<float> testsG;
-    vector<float> finalExamsG;
+    std::vector<float> assignmentsG;
+    std::vector<float> testsG;
+    std::vector<float> finalExamsG;
     float finalG;
 };
 

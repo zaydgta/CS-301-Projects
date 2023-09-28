@@ -27,11 +27,9 @@ public:
 
 	// New functions TEMPORARY
 
-	// Creates new semester
+	// Creates new student
 	void createStudent(ItemType item);
 /*
-	// Creates new student
-	void createStudent();
 
 	// Records assignments
 	void recordAssignment();
