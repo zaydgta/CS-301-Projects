@@ -70,8 +70,15 @@ void ItemType::InitializeStudent(int number, std::string firstName, std::string 
     idN = id;
 }
 
+void ItemType::InitializeGrades(int numOfAssignments, int numOfTests, int numOfFinalExams) {
+	assignmentsG.resize(numOfAssignments);
+	testsG.resize(numOfTests);
+	finalExamsG.resize(numOfFinalExams);
+}
+
 void ItemType::InitializeAssignments(int assignmentNumber, int grade) {
-    assignmentsG[assignmentNumber] = grade;
+    assignmentsG[assignmentNumber-1] = grade;
+	std::cout << "DEBUG: " << assignmentsG[assignmentNumber - 1] << std::endl;
 }
 
 void ItemType::InitializeTests(int tests[]) {
@@ -101,5 +108,10 @@ void ItemType::Print(std::ostream& out) const {
     out << assignmentsW << std::endl;
     out << testsW << std::endl;
     out << finalExamsW << std::endl;
+
+	for (int i = 0; i < numAssignments; i++) {
+		out << "Assignment " << i+1 << " grade is " << assignmentsG[i] << std::endl;
+	}
+
 
 }

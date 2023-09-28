@@ -43,8 +43,7 @@ int main(){
         if (command == "S") {
 
             // Variables
-            int numOfAssignments, numOfTests, numOfFinalExams, assignmentsWeight, testsWeight, finalExamsWeight, totalWeight = 0;
-
+            int numOfAssignments = -1, numOfTests = -1, numOfFinalExams = -1, assignmentsWeight = -1, testsWeight = -1, finalExamsWeight = -1, totalWeight = 0;
 
             // Checks if the number of assignments exceed the range
             while (numOfAssignments < 0 || numOfAssignments > 6 || numOfTests < 0 || numOfTests > 4 || numOfFinalExams < 0 || numOfFinalExams > 1){
@@ -60,7 +59,7 @@ int main(){
                 cin >> numOfFinalExams;
 
                 if (numOfAssignments < 0 || numOfAssignments > 6 || numOfTests < 0 || numOfTests > 4 || numOfFinalExams < 0 || numOfFinalExams > 1){
-                    cout << "The number of assignments, tests, and final exams is outside of the required range. Please re-enter them" << endl;
+                    cout << "The number of assignments, tests, and final exams is outside of the required range. Please re-enter them." << endl;
                 }
             }
 
@@ -85,6 +84,8 @@ int main(){
 
             // Initializes the itemType class with the required variables
             item.InitializeSemester(numOfAssignments, numOfTests, numOfFinalExams, assignmentsWeight, testsWeight, finalExamsWeight);
+
+			item.InitializeGrades(numOfAssignments, numOfTests, numOfFinalExams);
 
         } else if (command == "A") {
 
@@ -128,6 +129,8 @@ int main(){
                 cin >> number;
 
                 GradeBook1.recordAssignment(number);
+
+				cout << "DEBUG 3: " << item.assignmentsG[0] << endl;
 
                 // Implement an array that keeps track of the graded assignments
 

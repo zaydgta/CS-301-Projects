@@ -1,24 +1,41 @@
-TestRun1
+TestRun3
 0
 Zayd
 Ali
 5
-6
-4
-0
-50
-49
+2
+2
 1
+50
+25
+25
+Assignment 1 grade is 0
+Assignment 2 grade is 0
+
+2
+Noor
+Ashfaq
+7
+2
+2
+1
+50
+25
+25
+Assignment 1 grade is 0
+Assignment 2 grade is 0
 
 1
 Hasib
 Ayoubi
 6
-6
-4
-0
-50
-49
+2
+2
 1
+50
+25
+25
+Assignment 1 grade is 0
+Assignment 2 grade is 0
 
 

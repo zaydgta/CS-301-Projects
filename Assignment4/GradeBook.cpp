@@ -1,5 +1,5 @@
 #include "GradeBook.h"
-#include "Student.h"
+using namespace std;
 
 struct NodeType {
 
@@ -171,7 +171,6 @@ void GradeBook::recordAssignment(int number) {
     int length = GetLength();
     int grade;
 
-
     ResetList();
 
     cout << "You have chosen assignment number " << number << "." << endl;
@@ -185,5 +184,7 @@ void GradeBook::recordAssignment(int number) {
         cin >> grade;
 
         item.InitializeAssignments(number, grade);
+
+		cout << "DEBUG 2: " << item.assignmentsG[0] << endl;
     }
 };
