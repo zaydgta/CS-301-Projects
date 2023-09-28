@@ -164,3 +164,19 @@ void GradeBook::createStudent(ItemType item){
 
   length++;
 }
+
+// Incomplete, also remember the InitializeAssignments() function. Both need to be modified
+void GradeBook::recordAssignment(int number) {
+    
+    int length = GetLength();
+    for (int counter = 0; counter < length; counter++) {
+
+        ItemType item;
+        item = GetNextItem();
+        
+        item;
+
+
+
+    }
+};

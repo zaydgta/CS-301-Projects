@@ -25,9 +25,9 @@ ItemType::ItemType() {
     numFinalExams = 0;
 
     // Grades of all assignments
-    //assignmentsG = 0;
-    //testsG = 0;
-    //finalExamsG = 0;
+    assignmentsG;
+    testsG;
+    finalExamsG;
     finalG = 0;
 }
 

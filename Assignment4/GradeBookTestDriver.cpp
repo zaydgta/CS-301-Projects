@@ -104,9 +104,22 @@ int main(){
             GradeBook1.createStudent(item);
     
         } else if (command == "P") {
-        /*
-            outFile << "Length is " << list.GetLength() << endl;
-        */
+            
+            int i = 0, number, grade;
+
+            item = GradeBook1.GetNextItem();
+
+            int numAssignments = item.numAssignments;
+
+            GradeBook1.ResetList();
+
+            while (i < numAssignments) {
+                cout << "Which programming assignment's grade do you want to record?" << endl;
+                cin >> number;
+
+                GradeBook1.recordAssignment(number);
+            }
+
         } else if (command == "T") {
         /*
             if (list.IsFull()) {

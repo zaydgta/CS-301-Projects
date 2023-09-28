@@ -24,15 +24,14 @@ public:
 	void ResetList();
 	ItemType GetNextItem();
 
-
 	// New functions TEMPORARY
-
 	// Creates new student
 	void createStudent(ItemType item);
-/*
 
 	// Records assignments
-	void recordAssignment();
+	void recordAssignment(int number);
+
+/*
 
 	// Records tests
 	void recordTest();
