@@ -18,11 +18,15 @@ public:
 	void Print(std::ostream&) const;
 	void Initialize(int number, std::string firstName, std::string lastName, int id);
 
-private:
+
+	//Temp
+	//void printItem();
+
+private:	
 	int value;
-	std::string firstName;
-    std::string lastName;
-    int id;
+	std::string fName;
+	std::string lName;
+	int idN;
 };
 
 #endif

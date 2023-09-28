@@ -6,9 +6,9 @@
 
 ItemType::ItemType() { 
     value = 0;
-    firstName = " ";
-    lastName = " ";
-    id = 0;
+    fName = " ";
+    lName = " ";
+    idN = 0;
 }
 
 RelationType ItemType::ComparedTo(ItemType otherItem) const {
@@ -23,16 +23,26 @@ RelationType ItemType::ComparedTo(ItemType otherItem) const {
 
 void ItemType::Initialize(int number, std::string firstName, std::string lastName, int id) {
     value = number;
-    firstName = firstName;
-    lastName = lastName;
-    id = id;
+    fName = firstName;
+    lName = lastName;
+    idN = id;
 }
 
 // pre:  out has been opened.
 // post: value has been sent to the stream out.
 void ItemType::Print(std::ostream& out) const {
     out << value << std::endl;
-    out << firstName << std::endl;
-    out << lastName << std::endl;
-    out << id << std::endl;
+    out << fName << std::endl;
+    out << lName << std::endl;
+    out << idN << std::endl;
 }
+
+//Temp
+// pre:  out has been opened.
+// post: value has been sent to the stream out.
+//void ItemType::printItem(){
+  //  std::cout << value << std::endl;
+    //std::cout << fName << std::endl;
+    //std::cout << lName << std::endl;
+    //std::cout << idN << std::endl;
+//}

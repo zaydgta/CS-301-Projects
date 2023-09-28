@@ -72,11 +72,10 @@ int main(){
             cin >> id;
             
             int length = GradeBook1.GetLength();
-            
+
             item.Initialize(length, firstName, lastName, id);
+
             GradeBook1.createStudent(item);
-            
-            printGradeBook(outFile, GradeBook1);
     
         } else if (command == "P") {
         /*
@@ -119,6 +118,8 @@ int main(){
 
     };
 
+    printGradeBook(outFile, GradeBook1);
+
     cout << "Testing completed."  << endl;
     inFile.close();
     outFile.close();
@@ -131,16 +132,14 @@ int main(){
 //       dataFile is still open.
 void printGradeBook(ofstream& dataFile, GradeBook& GradeBook1) {
 
-    int length;
-    ItemType item;
-
     GradeBook1.ResetList();
-    length = GradeBook1.GetLength();
+    int length = GradeBook1.GetLength();
     for (int counter = 1; counter <= length; counter++){
 
         ItemType item;
         item = GradeBook1.GetNextItem();
         item.Print(dataFile);
+        dataFile << endl;
     }
 
     dataFile << endl;
