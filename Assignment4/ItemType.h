@@ -4,8 +4,10 @@
 #ifndef ITEMTYPE_H
 #define ITEMTYPE_H
 
+#include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 
 const int MAX_ITEMS = 5;
 enum RelationType  {LESS, GREATER, EQUAL};
@@ -16,17 +18,40 @@ public:
 	ItemType();
 	RelationType ComparedTo(ItemType) const;
 	void Print(std::ostream&) const;
-	void Initialize(int number, std::string firstName, std::string lastName, int id);
+
+    void InitializeSemester(int numOfAssignments, int numOfTests, int numOffinalExam, int assignmnetWeight, int testWeight, int finalExamWeight);
+	void InitializeStudent(int number, std::string firstName, std::string lastName, int id);
+    void InitializeAssignments(int assignments[]);
+    void InitializeTests(int tests[]);
+    void InitializeFinalExams(int finalExams[]);
 
 
 	//Temp
-	//void printItem();
+	//void printItem();	
 
-private:	
+    // Order of student on the list
 	int value;
+
+    //Basic student info
 	std::string fName;
 	std::string lName;
 	int idN;
+
+    //Weights of assignment (must = 100%)
+    int assignmentW;
+    int testW;
+    int finalExamW;
+
+    // Number of all assignments
+    int numAssignments;
+    int numTests;
+    int numFinalExams;
+
+    //Grades of all assignments
+    vector<float> assignmentsG;
+    vector<float> testsG;
+    vector<float> finalExamsG;
+    float finalG;
 };
 
 #endif

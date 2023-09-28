@@ -20,7 +20,6 @@ public:
 	int GetLength() const;
 	void MakeEmpty();
 	ItemType GetItem(ItemType& item, bool& found);
-	void PutItem(ItemType item);
 	void DeleteItem(ItemType item);
 	void ResetList();
 	ItemType GetNextItem();

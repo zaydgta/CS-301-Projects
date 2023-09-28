@@ -41,14 +41,6 @@ int main(){
     numCommands = 0;
 
     while (command != "Q"){
-        /*
-        if (command == "PutItem") {
-            inFile >> number;
-            item.Initialize(number);
-            list.PutItem(item);
-            item.Print(outFile);
-            outFile << " is inserted" << endl;
-        */
         if (command == "S") {
         /*
             inFile >> number;
@@ -73,7 +65,7 @@ int main(){
             
             int length = GradeBook1.GetLength();
 
-            item.Initialize(length, firstName, lastName, id);
+            item.InitializeStudent(length, firstName, lastName, id);
 
             GradeBook1.createStudent(item);
     
