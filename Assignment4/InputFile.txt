@@ -5,4 +5,6 @@ A
 P
 T
 F
+G
+O
 Q

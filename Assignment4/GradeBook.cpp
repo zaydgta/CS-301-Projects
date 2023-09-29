@@ -51,7 +51,7 @@ ItemType GradeBook::GetItem(ItemType& item, bool& found) {
     moreToSearch = (location != NULL);
 
     while (moreToSearch && !found) {
-        switch(item.ComparedTo(location->info)) {
+        switch(item.ComparedToName(location->info)) {
             case GREATER:
                 location = location->next;
                 moreToSearch = (location != NULL);
@@ -76,12 +76,12 @@ void GradeBook::DeleteItem(ItemType item) {
     NodeType* tempLocation;
 
     // Locate node to be deleted.
-    if (item.ComparedTo(listData->info) == EQUAL) {
+    if (item.ComparedToName(listData->info) == EQUAL) {
         tempLocation = location;
         listData = listData->next;	// Delete first node.
     } else {
 
-        while (item.ComparedTo((location->next)->info) != EQUAL) {
+        while (item.ComparedToName((location->next)->info) != EQUAL) {
             location = location->next;
         }
 
@@ -135,7 +135,7 @@ void GradeBook::createStudent(ItemType item){
 
     // Find insertion point.
     while (moreToSearch) {
-        switch(item.ComparedTo(location->info)) {
+        switch(item.ComparedToName(location->info)) {
             case GREATER:
                 predLoc = location;
       	        location = location->next;
@@ -205,7 +205,7 @@ void GradeBook::modifyStudent(ItemType& item, bool& found) {
  
     // Finds the desired node in the list
     while (moreToSearch && !found) {
-        switch (item.ComparedTo(location->info)) {
+        switch (item.ComparedToName(location->info)) {
         case GREATER:
             location = location->next;
             moreToSearch = (location != NULL);
@@ -279,4 +279,79 @@ void GradeBook::recordFinalExam(int number) {
         item.InitializeFinalExams(number, grade);
         modifyStudent(item, found);
     }
-};
+}
+
+void GradeBook::changeGrade(int id, int grade, char choice) {
+
+    int length = GetLength();
+    bool found;
+    int number;
+
+    ResetList();
+
+    ItemType item;
+    item.idN = id;
+
+    bool moreToSearch;
+    NodeType* location;
+
+    location = listData;
+    found = false;
+    moreToSearch = (location != NULL);
+
+    while (moreToSearch && !found) {
+        switch (item.ComparedToID(location->info)) {
+        case GREATER:
+            location = location->next;
+            moreToSearch = (location != NULL);
+            break;
+
+        case EQUAL:
+            found = true;
+            item = location->info;
+            break;
+
+        case LESS:
+            moreToSearch = false;
+            break;
+        }
+    }
+
+    if (choice == 'P') {
+        
+        cout << "Which programming assignment number's grade would you like to change?" << endl;
+        cin >> number;
+
+        item.InitializeAssignments(number, grade);
+        modifyStudent(item, found);
+    } else if (choice == 'T') {
+       
+        cout << "Which test number's grade would you like to change?" << endl;
+        cin >> number;
+
+        item.InitializeTests(number, grade);
+        modifyStudent(item, found);
+    } else if (choice == 'F') {
+        
+        number = 1;
+        item.InitializeFinalExams(number, grade);
+        modifyStudent(item, found);
+    }
+}
+
+void GradeBook::calculateFinalGrade() {
+    
+    bool found;
+    ItemType item;
+
+    ResetList();
+
+    for (int counter = 0; counter < length; counter++) {
+
+        ItemType item;
+        item = GetNextItem();
+
+        item.InitializeFinalGrades();
+        modifyStudent(item, found);
+    }
+}

@@ -28,14 +28,6 @@ int main(){
     cin  >> inFileName;
     inFile.open(inFileName.c_str());
 
-    cout << "Enter name of output file; press return." << endl;
-    cin  >> outFileName;
-    outFile.open(outFileName.c_str());
-
-    cout << "Enter name of test run; press return." << endl;
-    cin  >> outputLabel;
-    outFile << outputLabel << endl;
-
     inFile >> command;
     numCommands = 0;
 
@@ -100,7 +92,7 @@ int main(){
             cout << "Input student's last name: " << endl;
             cin >> lastName;
 
-            cout << "Input student's id: " << endl;
+            cout << "Input student's ID: " << endl;
             cin >> id;
 
             // Gets the length of the linked list(GradeBook1)
@@ -199,33 +191,53 @@ int main(){
             }
 
         } else if (command == "C") {
-        /*
-            PrintList(outFile, list);
-        */
+        
+            int id, grade;
+            char choice;
+
+            cout << "Input students ID:" << endl;
+            cin >> id;
+
+            cout << "Input new grade:" << endl;
+            cin >> grade;
+
+            cout << "Which type of grade would you like to change? (P = Programming Assignment, T = Test, F = Final Exam)" << endl;
+            cin >> choice;
+
+            GradeBook1.changeGrade(id, grade, choice);
+            
+            cout << "Your grade has been changed" << endl;
+
         } else if (command == "G"){
 
+            GradeBook1.calculateFinalGrade();
 
-        } else if (command == "O"){
+        } else if (command == "O") {
 
-        }
+            outFileName = "Grades.out";
+            outFile.open(outFileName.c_str());
+            printGradeBook(outFile, GradeBook1);
+            outFile.close();
 
-
-        else {
+        } else if (command == "Q") {
+            
+            outFileName = "Grades.dat";
+            outFile.open(outFileName.c_str());
+            printGradeBook(outFile, GradeBook1);
+            outFile.close();
+        
+        } else {
             cout << "Command not recognized." << endl;
         }
 
         numCommands++;
         cout <<  "Command number " << numCommands << " completed." << endl;
         inFile >> command;
-
     };
-
-    // Temporary print function
-    printGradeBook(outFile, GradeBook1);
 
     cout << "Testing completed."  << endl;
     inFile.close();
-    outFile.close();
+    
     return 0;
 }
 

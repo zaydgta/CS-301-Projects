@@ -40,21 +40,12 @@ public:
 	// Records final exam
 	void recordFinalExam(int number);
 
-/*
-	// Changes the grade
-	void changeGrade();
+	// Changes the grade for aan assignment
+	void changeGrade(int id, int grade, char choice);
 
-	// Calculates the final grade
 	void calculateFinalGrade();
 
-	// Outputs the grade data into the file Grades.out
-	void outputGrade();
 
-	// Saves the grade data into the file Grades.dat by overwriting it
-	// or creating a new one if not there then quits the program
-	void quit();
-
-*/
 private:
 
 	NodeType* listData;

@@ -28,11 +28,12 @@ ItemType::ItemType() {
     assignmentsG;
     testsG;
     finalExamsG;
-    finalG = 0;
+    finalPG = 0;
+    finalTG = 0;
 }
 
-// Compares the ItemType by last name then first name instead of value
-RelationType ItemType::ComparedTo(ItemType otherItem) const {
+// Compares the ItemType by last name then by first name instead of value
+RelationType ItemType::ComparedToName(ItemType otherItem) const {
 
     int lastNameComp = lName.compare(otherItem.lName);
 
@@ -53,6 +54,20 @@ RelationType ItemType::ComparedTo(ItemType otherItem) const {
         }
     }
 }
+
+// Compares the ItemType by last name then by first name instead of value
+RelationType ItemType::ComparedToID(ItemType otherItem) const {
+
+    if (idN < otherItem.idN) {
+        return LESS;
+    } else if (idN > otherItem.idN) {
+        return GREATER;
+    } else {
+        return EQUAL;
+    }
+}
+
+
 
 void ItemType::InitializeSemester(int numOfAssignments, int numOfTests, int numOfFinalExams, int assignmentWeight, int testWeight, int finalExamWeight) {
     numAssignments = numOfAssignments;
@@ -90,6 +105,29 @@ void ItemType::InitializeFinalExams(int finalExamNumber, int grade) {
     }
 }
 
+void ItemType::InitializeFinalGrades() {
+    
+    int final = 0;
+
+    for (int i = 0; i < numAssignments; i++) {
+        final += assignmentsG[i];
+    }
+
+    final = final / numAssignments;
+
+    finalPG = final;
+
+    final = 0;
+
+    for (int i = 0; i < numTests; i++) {
+        final += testsG[i];
+    }
+
+    final = final / numTests;
+
+    finalTG = final;
+}
+
 // pre:  out has been opened.
 // post: value has been sent to the stream out.
 void ItemType::Print(std::ostream& out) const {
@@ -114,6 +152,9 @@ void ItemType::Print(std::ostream& out) const {
     }
 
     for (int i = 0; i < numFinalExams; i++) {
-        out << "Final exam " << i + 1 << " grade: " << finalExamsG[i] << std::endl;
+        out << "Final exam grade: " << finalExamsG[i] << std::endl;
     }
+
+    out << "Student's final assignment grade: " << finalPG << std::endl;
+    out << "Student's final test grade: " << finalTG << std::endl;
 }

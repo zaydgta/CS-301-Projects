@@ -16,7 +16,8 @@ class ItemType {
 
 public:
 	ItemType();
-	RelationType ComparedTo(ItemType) const;
+	RelationType ComparedToName(ItemType) const;
+    RelationType ComparedToID(ItemType) const;
 	void Print(std::ostream&) const;
 
     void InitializeSemester(int numOfAssignments, int numOfTests, int numOfFinalExam, int assignmentWeight, int testWeight, int finalExamWeight);
@@ -25,6 +26,7 @@ public:
     void InitializeAssignments(int assignmentNumber, int grade);
     void InitializeTests(int testNumber, int grade);
     void InitializeFinalExams(int finalExamNumber, int grade);
+    void InitializeFinalGrades();
 
     // Order of student on the list
 	int value;
@@ -48,7 +50,8 @@ public:
     std::vector<float> assignmentsG;
     std::vector<float> testsG;
     std::vector<float> finalExamsG;
-    float finalG;
+    float finalPG;
+    float finalTG;
 };
 
 #endif
