@@ -165,11 +165,12 @@ void GradeBook::createStudent(ItemType item){
   length++;
 }
 
-// Incomplete, also remember the InitializeAssignments() function. Both need to be modified
+// Records the grades for the assignments for student
 void GradeBook::recordAssignment(int number) {
-
+    
     int length = GetLength();
     int grade;
+    bool found;
 
     ResetList();
 
@@ -184,7 +185,98 @@ void GradeBook::recordAssignment(int number) {
         cin >> grade;
 
         item.InitializeAssignments(number, grade);
+        modifyStudent(item, found);
+    }
+};
 
-		cout << "DEBUG 2: " << item.assignmentsG[0] << endl;
+// Modifies the data for the student in the grade book
+void GradeBook::modifyStudent(ItemType& item, bool& found) {
+    
+    NodeType* newNode;  	// pointer to node being inserted
+    NodeType* predLoc;  	// trailing pointer
+    NodeType* location; 	// traveling pointer
+    
+    bool moreToSearch;
+
+    location = listData;
+    predLoc = NULL;
+    moreToSearch = (location != NULL);
+    found = false;
+ 
+    // Finds the desired node in the list
+    while (moreToSearch && !found) {
+        switch (item.ComparedTo(location->info)) {
+        case GREATER:
+            location = location->next;
+            moreToSearch = (location != NULL);
+            break;
+
+        case EQUAL:
+            found = true;
+            break;
+
+        case LESS:
+            moreToSearch = false;
+            break;
+        }
+    }
+
+    // Prepare node for insertion
+    newNode = new NodeType;
+    newNode->info = item;
+
+    // Insert node into list
+    // Insert as first
+    if (predLoc == NULL) {
+        newNode->next = listData;
+        listData = newNode;
+    } else {
+        newNode->next = location;
+        predLoc->next = newNode;
+    }
+}
+
+// Records the grades for the tests for student
+void GradeBook::recordTest(int number) {
+
+    int length = GetLength();
+    int grade;
+    bool found;
+
+    ResetList();
+
+    cout << "You have chosen test number " << number << "." << endl;
+
+    for (int counter = 0; counter < length; counter++) {
+
+        ItemType item;
+        item = GetNextItem();
+
+        cout << "Please enter the test's grade for the student " << item.fName << " " << item.lName << endl;
+        cin >> grade;
+
+        item.InitializeTests(number, grade);
+        modifyStudent(item, found);
+    }
+}
+
+void GradeBook::recordFinalExam(int number) {
+
+    int length = GetLength();
+    int grade;
+    bool found;
+
+    ResetList();
+
+    for (int counter = 0; counter < length; counter++) {
+
+        ItemType item;
+        item = GetNextItem();
+
+        cout << "Please enter the final exam grade for the student " << item.fName << " " << item.lName << endl;
+        cin >> grade;
+
+        item.InitializeFinalExams(number, grade);
+        modifyStudent(item, found);
     }
 };

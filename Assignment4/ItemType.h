@@ -23,12 +23,8 @@ public:
 	void InitializeStudent(int number, std::string firstName, std::string lastName, int id);
 	void InitializeGrades(int numOfAssignments, int numOfTests, int numOfFinalExams);
     void InitializeAssignments(int assignmentNumber, int grade);
-    void InitializeTests(int tests[]);
-    void InitializeFinalExams(int finalExams[]);
-
-
-	//Temp
-	//void printItem();
+    void InitializeTests(int testNumber, int grade);
+    void InitializeFinalExams(int finalExamNumber, int grade);
 
     // Order of student on the list
 	int value;

@@ -115,6 +115,7 @@ int main(){
         } else if (command == "P") {
 
             int number, grade, numAssignments;
+            bool taken = false;
 
             item = GradeBook1.GetNextItem();
 
@@ -125,46 +126,78 @@ int main(){
 			assignmentNumber.resize(numAssignments);
 
             for (int i = 0; i < numAssignments; i++) {
+
                 cout << "Which programming assignment's grade do you want to record? (Number of assignments is " << numAssignments << ")" << endl;
                 cin >> number;
 
-
-				for (int j = 0; j < assignmentNumber.size; j++) {
+				for (int j = 0; j < assignmentNumber.size(); j++) {
 				
 					if (number == assignmentNumber[j]) {
+                        taken = true;
 						cout << "Programming assignment " << number << " has already been graded. Please choose a different one" << endl;
 						i--;
-					} else {
-						GradeBook1.recordAssignment(number);
-						assignmentNumber.push_back(number);
-					}
+					} 
 				}
 
+                if (taken != true) {
+                    GradeBook1.recordAssignment(number);
+                    assignmentNumber.push_back(number);
+                }
 
-
-
-				cout << "DEBUG 3: " << item.fName << " - " << item.assignmentsG[i] << endl;
-				cout << "DEBUG 3: Vector size" << item.assignmentsG.size() << std::endl;
-
-                // Implement an array that keeps track of the graded assignments
-
+                taken = false;
             }
 
         } else if (command == "T") {
-        /*
-            if (list.IsFull()) {
-                outFile << "List is full." << endl;
-            } else {
-                outFile << "List is not full." << endl;
+            
+            int number, grade, numTests;
+            bool taken = false;
 
+            item = GradeBook1.GetNextItem();
+
+            numTests = item.numTests;
+
+            vector<int> testNumber;
+
+            testNumber.resize(numTests);
+
+            for (int i = 0; i < numTests; i++) {
+
+                cout << "Which test's grade do you want to record? (Number of tests is " << numTests << ")" << endl;
+                cin >> number;
+
+                for (int j = 0; j < testNumber.size(); j++) {
+
+                    if (number == testNumber[j]) {
+                        taken = true;
+                        cout << "Test " << number << " has already been graded. Please choose a different one" << endl;
+                        i--;
+                    }
+                }
+
+                if (taken != true) {
+                    GradeBook1.recordTest(number);
+                    testNumber.push_back(number);
+                }
+
+                taken = false;
             }
-            */
 
         } else if (command == "F") {
-        /*
-            list.MakeEmpty();
-            outFile << "List is empty." << endl;
-        */
+            
+            int number, grade, numFinalExams;
+            bool taken = false;
+
+            item = GradeBook1.GetNextItem();
+
+            numFinalExams = item.numFinalExams;
+
+            if (numFinalExams == 0) {
+                cout << "There is no final exam to grade" << endl;
+            } else if (numFinalExams == 1) {
+                number = 1;
+                GradeBook1.recordFinalExam(number);
+            }
+
         } else if (command == "C") {
         /*
             PrintList(outFile, list);

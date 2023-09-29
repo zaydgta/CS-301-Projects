@@ -78,43 +78,42 @@ void ItemType::InitializeGrades(int numOfAssignments, int numOfTests, int numOfF
 
 void ItemType::InitializeAssignments(int assignmentNumber, int grade) {
     assignmentsG[assignmentNumber-1] = grade;
-	std::cout << "DEBUG: " << assignmentsG[assignmentNumber - 1] << std::endl;
-	std::cout << "DEBUG: Vector size" << assignmentsG.size() << std::endl;
 }
 
-void ItemType::InitializeTests(int tests[]) {
-    for (int i = 0; i < numTests; i++) {
-        testsG[i] = tests[i];
-    }
+void ItemType::InitializeTests(int testNumber, int grade) {
+    testsG[testNumber - 1] = grade;
 }
 
-void ItemType::InitializeFinalExams(int finalExams[]) {
+void ItemType::InitializeFinalExams(int finalExamNumber, int grade) {
     for (int i = 0; i < numFinalExams; i++) {
-        finalExamsG[i] = finalExams[i];
+        finalExamsG[finalExamNumber - 1] = grade;
     }
 }
 
 // pre:  out has been opened.
 // post: value has been sent to the stream out.
 void ItemType::Print(std::ostream& out) const {
-    out << value << std::endl;
-    out << fName << std::endl;
-    out << lName << std::endl;
-    out << idN << std::endl;
+    //out << value << std::endl;
+    out << "Student's name: " << fName << " " << lName << std::endl;
+    out << "Student's ID: " << idN << std::endl;
 
-    out << numAssignments << std::endl;
-    out << numTests << std::endl;
-    out << numFinalExams << std::endl;
+    //out << numAssignments << std::endl;
+    //out << numTests << std::endl;
+    //out << numFinalExams << std::endl;
 
-    out << assignmentsW << std::endl;
-    out << testsW << std::endl;
-    out << finalExamsW << std::endl;
+    //out << assignmentsW << std::endl;
+    //out << testsW << std::endl;
+    //out << finalExamsW << std::endl;
 
 	for (int i = 0; i < numAssignments; i++) {
-		std::cout << "DEBUG4: " << assignmentsG[i] << std::endl;
-		out << "DEBUG5: " << assignmentsG[i] << std::endl;
-		out << "Assignment " << i+1 << " grade is " << assignmentsG[i] << std::endl;
+		out << "Assignment " << i+1 << " grade: " << assignmentsG[i] << std::endl;
 	}
 
+    for (int i = 0; i < numTests; i++) {
+        out << "Test " << i + 1 << " grade: " << testsG[i] << std::endl;
+    }
 
+    for (int i = 0; i < numFinalExams; i++) {
+        out << "Final exam " << i + 1 << " grade: " << finalExamsG[i] << std::endl;
+    }
 }

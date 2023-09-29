@@ -31,14 +31,16 @@ public:
 	// Records assignments
 	void recordAssignment(int number);
 
-/*
+	// Modifies the data of the student
+	void modifyStudent(ItemType& item, bool& found);
 
 	// Records tests
-	void recordTest();
+	void recordTest(int number);
 
 	// Records final exam
-	void recordFinalExam();
+	void recordFinalExam(int number);
 
+/*
 	// Changes the grade
 	void changeGrade();
 
