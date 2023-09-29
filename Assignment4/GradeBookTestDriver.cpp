@@ -12,16 +12,16 @@ void printGradeBook(ofstream& outFile, GradeBook& list);
 int main(){
 
     ifstream inFile;       // file containing operations
-    ofstream outFile;      // file containing output
+    ofstream outFile1, outFile2;      // file containing output
     string inFileName;     // input file external name
-    string outFileName;    // output file external name
-    string outputLabel;
+    string outFileName1, outFileName2;    // output file external name
     string command;        // operation to be executed
     int number;
     ItemType item;
     GradeBook GradeBook1;
     bool found;
     int numCommands;
+    bool check = true;
 
     // Prompt for file names, read file names, and prepare files
     cout << "Enter name of input command file; press return." << endl;
@@ -31,7 +31,7 @@ int main(){
     inFile >> command;
     numCommands = 0;
 
-    while (command != "Q"){
+    while (check == true){
         if (command == "S") {
 
             // Variables
@@ -214,19 +214,22 @@ int main(){
 
         } else if (command == "O") {
 
-            outFileName = "Grades.out";
-            outFile.open(outFileName.c_str());
-            printGradeBook(outFile, GradeBook1);
-            outFile.close();
+            outFileName1 = "Grades.out";
+            outFile1.open(outFileName1.c_str());
+            printGradeBook(outFile1, GradeBook1);
+            outFile1.close();
 
         } else if (command == "Q") {
             
-            outFileName = "Grades.dat";
-            outFile.open(outFileName.c_str());
-            printGradeBook(outFile, GradeBook1);
-            outFile.close();
+            outFileName2 = "Grades.dat";
+            outFile2.open(outFileName2.c_str());
+            printGradeBook(outFile2, GradeBook1);
+            outFile2.close();
+
+            check = false;
         
         } else {
+            
             cout << "Command not recognized." << endl;
         }
 
@@ -237,7 +240,6 @@ int main(){
 
     cout << "Testing completed."  << endl;
     inFile.close();
-    
     return 0;
 }
 
