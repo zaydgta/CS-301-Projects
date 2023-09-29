@@ -19,7 +19,7 @@ public:
 	RelationType ComparedTo(ItemType) const;
 	void Print(std::ostream&) const;
 
-    void InitializeSemester(int numOfAssignments, int numOfTests, int numOffinalExam, int assignmnetWeight, int testWeight, int finalExamWeight);
+    void InitializeSemester(int numOfAssignments, int numOfTests, int numOfFinalExam, int assignmentWeight, int testWeight, int finalExamWeight);
 	void InitializeStudent(int number, std::string firstName, std::string lastName, int id);
 	void InitializeGrades(int numOfAssignments, int numOfTests, int numOfFinalExams);
     void InitializeAssignments(int assignmentNumber, int grade);

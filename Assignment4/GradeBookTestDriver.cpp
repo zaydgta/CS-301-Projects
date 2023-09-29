@@ -120,17 +120,31 @@ int main(){
 
             numAssignments = item.numAssignments;
 
-            // User inputs number for the required assignment -> go into the recordAssignment -> print all students names alphabetically
-            // -> put the grade for that student's assignment -> loop until all students grades are submitted -> input number for another required assignment
-            // -> repeat until all assignments are done
+			vector<int> assignmentNumber;
+
+			assignmentNumber.resize(numAssignments);
 
             for (int i = 0; i < numAssignments; i++) {
-                cout << "Which programming assignment's grade do you want to record?" << endl;
+                cout << "Which programming assignment's grade do you want to record? (Number of assignments is " << numAssignments << ")" << endl;
                 cin >> number;
 
-                GradeBook1.recordAssignment(number);
 
-				cout << "DEBUG 3: " << item.assignmentsG[0] << endl;
+				for (int j = 0; j < assignmentNumber.size; j++) {
+				
+					if (number == assignmentNumber[j]) {
+						cout << "Programming assignment " << number << " has already been graded. Please choose a different one" << endl;
+						i--;
+					} else {
+						GradeBook1.recordAssignment(number);
+						assignmentNumber.push_back(number);
+					}
+				}
+
+
+
+
+				cout << "DEBUG 3: " << item.fName << " - " << item.assignmentsG[i] << endl;
+				cout << "DEBUG 3: Vector size" << item.assignmentsG.size() << std::endl;
 
                 // Implement an array that keeps track of the graded assignments
 
@@ -168,7 +182,7 @@ int main(){
         }
 
         numCommands++;
-        cout <<  " Command number " << numCommands << " completed." << endl;
+        cout <<  "Command number " << numCommands << " completed." << endl;
         inFile >> command;
 
     };
@@ -199,5 +213,4 @@ void printGradeBook(ofstream& dataFile, GradeBook& GradeBook1) {
     }
 
     dataFile << endl;
-
 }

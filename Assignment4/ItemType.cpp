@@ -54,11 +54,11 @@ RelationType ItemType::ComparedTo(ItemType otherItem) const {
     }
 }
 
-void ItemType::InitializeSemester(int numOfAssignments, int numOfTests, int numOfFinalExams, int assignmnetWeight, int testWeight, int finalExamWeight) {
+void ItemType::InitializeSemester(int numOfAssignments, int numOfTests, int numOfFinalExams, int assignmentWeight, int testWeight, int finalExamWeight) {
     numAssignments = numOfAssignments;
     numTests = numOfTests;
     numFinalExams = numOfFinalExams;
-    assignmentsW = assignmnetWeight;
+    assignmentsW = assignmentWeight;
     testsW = testWeight;
     finalExamsW = finalExamWeight;
 }
@@ -79,6 +79,7 @@ void ItemType::InitializeGrades(int numOfAssignments, int numOfTests, int numOfF
 void ItemType::InitializeAssignments(int assignmentNumber, int grade) {
     assignmentsG[assignmentNumber-1] = grade;
 	std::cout << "DEBUG: " << assignmentsG[assignmentNumber - 1] << std::endl;
+	std::cout << "DEBUG: Vector size" << assignmentsG.size() << std::endl;
 }
 
 void ItemType::InitializeTests(int tests[]) {
@@ -110,6 +111,8 @@ void ItemType::Print(std::ostream& out) const {
     out << finalExamsW << std::endl;
 
 	for (int i = 0; i < numAssignments; i++) {
+		std::cout << "DEBUG4: " << assignmentsG[i] << std::endl;
+		out << "DEBUG5: " << assignmentsG[i] << std::endl;
 		out << "Assignment " << i+1 << " grade is " << assignmentsG[i] << std::endl;
 	}
 

@@ -180,7 +180,7 @@ void GradeBook::recordAssignment(int number) {
         ItemType item;
         item = GetNextItem();
 
-        cout << "Please enter the grade for the student " << item.fName << " " << item.lName << endl;
+        cout << "Please enter the assignment's grade for the student " << item.fName << " " << item.lName << endl;
         cin >> grade;
 
         item.InitializeAssignments(number, grade);
