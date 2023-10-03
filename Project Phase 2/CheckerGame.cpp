@@ -1,17 +1,21 @@
 // This cpp file contains the main function for the project
 // Program libraries
 #include "Player.h"
-#include "Piece.h"
-#include "Board.h"
-#include "AI.h"
+//#include "Piece.h"
+//#include "Board.h"
+//#include "AI.h"
 
 // Main function
 int main() {
     
+
+	// Player >> Piece >> Board
+
     // Variables
     int mode;
-    Player player1;
-    Board board;
+	Player player1;
+	bool player1WinCheck = false, player2WinCheck = false;
+    //Board board;
     
     // Prints these messages to the player on program start to choose mode
     cout << "Welcome to checkers!" << endl;
@@ -27,26 +31,38 @@ int main() {
         player2.playerTurn();
     } else if (mode == 2){
         cout << "You have selected Player vs AI" << endl;
-        AI player2;
-        player2.AITurn();
+        //AI player2;
+        //player2.AITurn();
     }
     
     // Prints the board and give a small tutorial
     cout << "Here's the current checker board" << endl;
-    board.printBoard();
+    //board.printBoard();
     cout << "The board is a 8x8 board where each square is designated by a letter plus a number (Ex: 3G)" << endl;
     cout << "You select the piece you want to move by choosing the square it occupies, then you choose where to move it" << endl;
     cout << "You alternate back and forth until one player achieves victory by consuming all of their opponent's pieces" << endl;
     
     // A loop that will keep prompting the player and printing the board until a winner is found
-    while (player1.win() == false || player2.win() == false){
+	while (player1WinCheck == false || player2WinCheck == false){
         
-        Player1.userInput();
+		// Calls the function to get user input
+        player1.userInput();
+
+
+		//player1.createPieces();
+
+		// Checks if a player has won the game and updates the variables
+		player1WinCheck = player1.playerWin();
+		player2WinCheck = player2.playerWin();
     }
     
+	// Checks who has won the game and outputs the winner
+	if (player1WinCheck == true) {
+		cout << "Player 1 wins!" << endl;
+	} else if (player2WinCheck == true) {
+		cout << "Player 2 wins!";
+	}
     
-    
-    
-    
+    // Ends the program
     return 0;  
 };
