@@ -1,95 +1,56 @@
 /***
-Title: <StackDr.cpp>
-Author: <Nell Dale, Chip Weems, Tim Richards>
-Date: <9/29/2023>
-Code version: <Latest>
-Availability: <https://www.jblearning.com/catalog/productdetails/9781284089189>
-*
-***/
+ Title: <StackDr.cpp>
+ Author: <Nell Dale, Chip Weems, Tim Richards>
+ Date: <9/29/2023>
+ Code version: <Latest>
+ Availability: <https://www.jblearning.com/catalog/productdetails/9781284089189>
+ *
+ ***/
 
-// Test driver
+// Test driver (StackTypeDriver.cpp)
 #include <iostream>
 #include <fstream>
 #include "StackType.h"
 using namespace std;
 
-int main() {
-
-    ifstream inFile;       // file containing operations
-    ofstream outFile;      // file containing output
-    string inFileName;     // input file external name
-    string outFileName;    // output file external name
-    string outputLabel;     
-    string command;        // operation to be executed
-  
-    int item;
-    StackType<int> stack(5);
-    int numCommands;
+// Main function
+int main(){
+    
+    // Variables
+    ifstream inFile;             //file containing operations
+    ofstream outFile;            //file containing output
+    string inFileName;           //input file external name
+    string outFileName;          //output file external name
+    
+    char item;
+    StackType <char> stack;
 
     // Prompt for file names, read file names, and prepare files
     cout << "Enter name of input command file; press return." << endl;
     cin  >> inFileName;
     inFile.open(inFileName.c_str());
-
+    
     cout << "Enter name of output file; press return." << endl;
     cin  >> outFileName;
     outFile.open(outFileName.c_str());
-
-    cout << "Enter name of test run; press return." << endl;
-    cin  >> outputLabel;
-    outFile << outputLabel << endl;
-
-    inFile >> command;
-    numCommands = 0;
-
-    while (command != "Quit"){ 
-        try {
-            
-            if (command == "Push") {
-                inFile >> item; 
-                stack.Push(item);
-
-            } else if (command == "Pop") {
-                stack.Pop();
-
-            } else if (command == "Top") {
-                item = stack.Top(); 
-                outFile<< "Top element is " << item << endl;
-
-            } else if (command == "IsEmpty") {
-                if (stack.IsEmpty()) {
-                    outFile << "Stack is empty." << endl;
-                } else {
-                    outFile << "Stack is not empty." << endl;
-                }
-
-            } else if (command == "IsFull") {
-                if (stack.IsFull()) {
-                    outFile << "Stack is full." << endl;
-                } else {
-                    outFile << "Stack is not full." << endl;
-                }
-
-            } else {
-                cout << "Command not recognized." << endl;
-
-            }
-
-        } catch (FullStack) {
-            outFile << "FullStack exception thrown." << endl;
+    
+    // Read items from the input file and push them into the stack
+    while (inFile >> item){
+        if (!stack.IsFull()){
+            stack.Push(item);
         }
-    
-    catch (EmptyStack){
-      outFile << "EmptyStack exception thrown." << endl;
-    }    
-    
-    numCommands++;
-    cout <<  " Command number " << numCommands << " completed." << endl;
-    inFile >> command;
     }
- 
-    cout << "Testing completed."  << endl;
+    
+    // Outputs the files from the stack into the
+    while (!stack.IsEmpty()){
+        item = stack.Top();
+        outFile << item;
+        stack.Pop();
+    }
+    
+    cout << "Reversing completed." << endl;
     inFile.close();
     outFile.close();
+    
     return 0;
 }

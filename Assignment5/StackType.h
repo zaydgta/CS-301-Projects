@@ -6,7 +6,8 @@ Code version: <Latest>
 Availability: <https://www.jblearning.com/catalog/productdetails/9781284089189>
 *
 ***/
-
+#include <iostream>
+using namespace std;
 
 // The class definition for StackType using templates 
 class FullStack
@@ -64,7 +65,7 @@ private:
     
     int top;
     int maxStack;
-    ItemType*  items;		
+    ItemType* items;		
 };
 
 // The function definitions for class StackType.
