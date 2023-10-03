@@ -2,6 +2,9 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+//#include "Piece.h";
+//#include "Board.h";
+
 // Program libraries
 #include <iostream>
 #include <string>
@@ -14,6 +17,7 @@ public:
 
 	// Class constructor
 	Player();
+	Player(string ids);
 
 	// Class destructor
 	~Player();
@@ -22,12 +26,16 @@ public:
 	void userInput();
 	void playerTurn();
 	bool playerWin();
+	string playerID();
 
 private:
 
     // Variables for player
     bool turn;
     bool win;
+	char row;
+	char column;
+	string id;
 	
 };
 
