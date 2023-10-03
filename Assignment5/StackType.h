@@ -69,7 +69,7 @@ private:
 };
 
 // The function definitions for class StackType.
-template<class ItemType>
+template <class ItemType>
 StackType<ItemType>::StackType(int max) {
     maxStack = max;
     top = -1;
