@@ -1,6 +1,8 @@
-#ifndef PROJECT_PHASE_2_PIECE_H
-#define PROJECT_PHASE_2_PIECE_H
+// This header file contains the Piece class type and related functions
+#ifndef PIECE_H
+#define PIECE_H
 
+// Program libraries
 #include "Player.h"
 #include "Board.h"
 
@@ -14,7 +16,7 @@ public:
     ~Piece();
 
     // Piece functions
-    //Layer 1
+    // Layer 1
     void createPieces(Player player);
     void move();
     void remove();
@@ -22,7 +24,6 @@ public:
     //Layer 2
     bool promote();
     void jump();
-
 
     //Layer 3
     bool moveCheck();
@@ -34,11 +35,10 @@ public:
     void promoteMove();
 
 private:
+
     int id;
     string label;
-
-
 };
 
 
-#endif //PROJECT_PHASE_2_PIECE_H
+#endif

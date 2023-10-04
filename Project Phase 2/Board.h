@@ -1,4 +1,4 @@
-// This header file contains the player class type and related functions
+// This header file contains the Board class type and related functions
 #ifndef BOARD_H
 #define BOARD_H
 
@@ -9,7 +9,6 @@ using namespace std;
 
 // Player class
 class Board {
-
 public:
 
 	// Class constructor
@@ -19,18 +18,16 @@ public:
 	~Board();
 
 	// Board functions
-	void Board::printBoard();
-	void PositionCheck();
-	void Remove();
-
+	void printBoard();
+	void positionCheck();
+	void remove();
 
 private:
 
     // Variables for Board
+	char board[9][9];
     bool white;
     bool black;
-
-	
 };
 
 #endif

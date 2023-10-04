@@ -1,4 +1,5 @@
-// This cpp file contains the implementation for the player class type functions
+// This cpp file contains the implementation for the Player class type functions
+// Program libraries
 #include "Player.h"
 using namespace std;
 
@@ -21,7 +22,6 @@ Player::Player(string ids) {
 	id = ids;
 }
 
-
 // Player class destructor
 Player::~Player(){
 
@@ -37,9 +37,7 @@ void Player::userInput(){
 	// Call the board object to detect if there is a piece on that space
 	// The board will return empty or the piece number and if its the player's or the opponent's
 
-
 	// Call the function that shows the available moves for the piece
-
 
 	cout << "Please choose which square you want to move the piece to" << endl;
 
@@ -51,7 +49,6 @@ void Player::userInput(){
 
 	// End the player's turn
 	playerTurn();
-
 }
 
 // Changes the flag if it's the player's current turn or not

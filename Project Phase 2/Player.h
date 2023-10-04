@@ -1,4 +1,4 @@
-// This header file contains the player class type and related functions
+// This header file contains the Player class type and related functions
 #ifndef PLAYER_H
 #define PLAYER_H
 
@@ -12,7 +12,6 @@ using namespace std;
 
 // Player class
 class Player {
-
 public:
 
 	// Class constructor
@@ -36,7 +35,6 @@ private:
 	char row;
 	char column;
 	string id;
-	
 };
 
 #endif

@@ -1,4 +1,5 @@
 // This cpp file contains the main function for the project
+
 // Program libraries
 #include "Player.h"
 //#include "Piece.h"
@@ -6,10 +7,7 @@
 //#include "AI.h"
 
 // Main function
-int main() {
-    
-
-	// Player >> Piece >> Board
+int main() {    
 
     // Variables
     int mode;
@@ -47,7 +45,6 @@ int main() {
         
 		// Calls the function to get user input
         player1.userInput();
-
 
 		//player1.createPieces();
 
