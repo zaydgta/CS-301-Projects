@@ -4,20 +4,18 @@
 
 // Program libraries
 #include "Player.h"
-#include "Board.h"
 
 class Piece {
 public:
     // Class constructor
     Piece();
-    Piece(int id, string label);
+    Piece(int id, string label, int rowNum, int columnNum);
 
     // Class destructor
     ~Piece();
 
     // Piece functions
     // Layer 1
-    void createPieces(Player player);
     void move();
     void remove();
 
@@ -38,6 +36,8 @@ private:
 
     int id;
     string label;
+    int row;
+    int column;
 };
 
 

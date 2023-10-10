@@ -2,7 +2,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-//#include "Piece.h";
+#include "Piece.h";
 //#include "Board.h";
 
 // Program libraries
@@ -26,14 +26,13 @@ public:
 	void playerTurn();
 	bool playerWin();
 	string playerID();
+	void createPieces(bool playerOrder);
 
 private:
 
     // Variables for player
     bool turn;
     bool win;
-	char row;
-	char column;
 	string id;
 };
 

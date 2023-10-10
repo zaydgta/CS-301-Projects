@@ -2,7 +2,7 @@
 
 // Program libraries
 #include "Player.h"
-//#include "Piece.h"
+#include "Piece.h"
 //#include "Board.h"
 //#include "AI.h"
 
@@ -11,7 +11,9 @@ int main() {
 
     // Variables
     int mode;
-	Player player1;
+	Player player1("Player 1");
+    Player player2("Player 2");
+    //AI player2;
 	bool player1WinCheck = false, player2WinCheck = false;
     //Board board;
     
@@ -25,11 +27,9 @@ int main() {
     // Creates a second player object or an AI object depending on user's input
     if (mode == 1){
         cout << "You have selected Player vs Player" << endl;
-        Player player2;
         player2.playerTurn();
     } else if (mode == 2){
         cout << "You have selected Player vs AI" << endl;
-        //AI player2;
         //player2.AITurn();
     }
     
@@ -40,17 +40,25 @@ int main() {
     cout << "You select the piece you want to move by choosing the square it occupies, then you choose where to move it" << endl;
     cout << "You alternate back and forth until one player achieves victory by consuming all of their opponent's pieces" << endl;
     
+
+
+    player1.createPieces(true);
+    player2.createPieces(false);
+
     // A loop that will keep prompting the player and printing the board until a winner is found
 	while (player1WinCheck == false || player2WinCheck == false){
         
-		// Calls the function to get user input
+		// Calls the function to get user input for player 1
         player1.userInput();
 
-		//player1.createPieces();
+		// Checks if player1 has won the game and updates the variables
+        player1WinCheck = player1.playerWin();
 
-		// Checks if a player has won the game and updates the variables
-		player1WinCheck = player1.playerWin();
-		player2WinCheck = player2.playerWin();
+        // Calls the function to get user input for player 1
+        player2.userInput();
+
+        // Checks if player2 has won the game and updates the variables
+        player2WinCheck = player2.playerWin();
     }
     
 	// Checks who has won the game and outputs the winner

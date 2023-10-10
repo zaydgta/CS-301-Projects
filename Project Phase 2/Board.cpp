@@ -12,6 +12,8 @@ static int counter = 0; //NOT NEEDED, JUST FOR DEBUGGING
 //◯, ●,○, 
 Board::Board() {
     
+    // I think you are gonna need to initilize the board's private variables in here
+
 }
 
 // Player class destructor

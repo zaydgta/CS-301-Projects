@@ -3,6 +3,14 @@
 #include "Piece.h"
 using namespace std;
 
+
+////////////////////////////////////////////////////////
+
+//What to do:
+// Make a function that returns the id of the piece based on the user's row and column
+// Make a function will access the piece at the given id to update its row and column of the piece
+////////////////////////////////////////////////////////
+
 // Piece class constructor
 Piece::Piece() {
 
@@ -10,32 +18,15 @@ Piece::Piece() {
     label = "";
 }
 
-Piece::Piece(int ids, string labels){
+Piece::Piece(int ids, string labels, int rowNum, int columnNum){
 
     id = ids;
     label = labels;
+    row = rowNum;
+    column = columnNum;
 }
 
 // Piece class destructor
 Piece::~Piece(){
 
-}
-
-//Piece class createPiece function
-void createPieces(Player player){
-    
-    // Variables
-    string playerId = player.playerID();
-    Piece piece1(1, playerId);
-    Piece piece2(2, playerId);
-    Piece piece3(3, playerId);
-    Piece piece4(4, playerId);
-    Piece piece5(5, playerId);
-    Piece piece6(6, playerId);
-    Piece piece7(7, playerId);
-    Piece piece8(8, playerId);
-    Piece piece9(9, playerId);
-    Piece piece10(10, playerId);
-    Piece piece11(11, playerId);
-    Piece piece12(12, playerId);
 }
