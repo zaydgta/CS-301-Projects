@@ -12,8 +12,6 @@ static int counter = 0; //NOT NEEDED, JUST FOR DEBUGGING
 //◯, ●,○, 
 Board::Board() {
     
-    // I think you are gonna need to initilize the board's private variables in here
-
 }
 
 // Player class destructor
@@ -32,7 +30,7 @@ void Board::testingBoard(){  //NOT NEEDED, JUST FOR DEBUGGING-------------------
     cout << "Enter something for Board " << counter <<".\n" << "Enter a row and column:\n";
     cin >> row >> col;
     
-    board[--row][--col] = 'X';
+    board[--row][--col].value = 'X';
 }
 //------------------------------------------------------------------------------------------------------------
 
@@ -42,7 +40,7 @@ void Board::printBoard() {
      for (int i=0; i < ROW; i++)
         {
             for (int x=0; x < COL; x++)
-                cout << board[i][x] << " ";
+                cout << board[i][x].value << " ";
             
             cout << endl;
         }
@@ -51,13 +49,18 @@ void Board::printBoard() {
 }
 
 //Updates the position of the pieces after every turn 
-void positionCheck() {
+void Board::positionCheck() {
+    
     
 }
 
 //Removes a piece from the board
-void removePiece() {
+void Board::removePiece(int r, int c) {
+    
+    //if (board[r][c].status == 1)
+    //{
+        board[--r][--c].value = 'X'; //X is a placeholder
+        board[--r][--c].status = 0; //space is now empty
+    //}
     
 }
-
-//Checks the possible 
