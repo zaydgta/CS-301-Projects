@@ -4,6 +4,10 @@
 
 // Program libraries
 #include "Player.h"
+#include "Board.h"
+#include <iostream>
+#include <string>
+using namespace std;
 
 class Piece {
 public:

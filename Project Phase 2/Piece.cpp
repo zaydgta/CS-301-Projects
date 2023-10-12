@@ -1,8 +1,8 @@
 // This cpp file contains the implementation for the Piece class type functions
 // Program libraries
+#include "Player.h"
 #include "Piece.h"
-using namespace std;
-
+#include "Board.h"
 
 ////////////////////////////////////////////////////////
 

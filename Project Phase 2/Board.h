@@ -3,9 +3,10 @@
 #define BOARD_H
 
 // Program libraries
+#include "Player.h"
+#include "Piece.h"
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 const int ROW = 9;

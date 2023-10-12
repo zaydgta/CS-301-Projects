@@ -2,10 +2,9 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "Piece.h";
-//#include "Board.h";
-
 // Program libraries
+#include "Player.h"
+#include "Board.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -16,7 +15,7 @@ public:
 
 	// Class constructor
 	Player();
-	Player(string ids);
+	Player(std::string ids);
 
 	// Class destructor
 	~Player();
@@ -25,15 +24,16 @@ public:
 	void userInput();
 	void playerTurn();
 	bool playerWin();
-	string playerID();
+	std::string playerID();
 	void createPieces(bool playerOrder);
+	int charToInt(char columnChar);
 
 private:
 
     // Variables for player
     bool turn;
     bool win;
-	string id;
+	std::string id;
 };
 
 #endif

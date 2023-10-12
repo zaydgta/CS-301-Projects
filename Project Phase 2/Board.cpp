@@ -1,9 +1,8 @@
 // This cpp file contains the implementation for the Board class type functions
 // Program libraries
-//#include "Player.h"
+#include "Player.h"
+#include "Piece.h"
 #include "Board.h"
-//#include "Piece.h"
-using namespace std;
 
 static int counter = 0; //NOT NEEDED, JUST FOR DEBUGGING
 

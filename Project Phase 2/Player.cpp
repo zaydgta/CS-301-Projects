@@ -1,7 +1,8 @@
 // This cpp file contains the implementation for the Player class type functions
-// Program libraries
+// // Program libraries
 #include "Player.h"
-using namespace std;
+#include "Piece.h"
+#include "Board.h"
 
 // Player class constructor
 Player::Player() {
@@ -28,18 +29,25 @@ Player::~Player(){
 void Player::userInput(){
     
     int row, column;
+    char columnToConvert;
+    Board board;
 
     // Call the board object to print it
+    board.printBoard();
 
     // Asks user which piece to move
-    cout << "Pick the checker piece you would like to move by inputting the row number and column letter (Ex: 3G)" << endl;
-	cin >> row >> column;
+    cout << "Pick the checker piece you would like to move by inputting the row number and column letter(Ex: 3G): ";
+	cin >> row >> columnToConvert;
+    column = charToInt(columnToConvert);
     
     // return the id of the piece that is at the square of the specified row and column number
 
-	cout << "Please choose which square you want to move the piece to" << endl;
+	cout << endl << "Please choose which square you want to move the piece to: " << endl;
 
-	cin >> row >> column;
+    cin >> row >> columnToConvert;
+    column = charToInt(columnToConvert);
+
+    cout << endl;
 
     // update the row and column variables of the piece object with the specified id with the new row and column
 
@@ -106,4 +114,30 @@ void Player::createPieces(bool playerOrder) {
         Piece piece12(12, playerId, 3, 8);
     }
     
+}
+
+// Converts user input from char to int
+int Player::charToInt(char columnChar) {
+    
+    columnChar = toupper(columnChar);
+
+    if (columnChar == 'A') {
+        return 1;
+    } else if (columnChar == 'B') {
+        return 2;
+    } else if (columnChar == 'C') {
+        return 3;
+    } else if (columnChar == 'D') {
+        return 4;
+    } else if (columnChar == 'E') {
+        return 5;
+    } else if (columnChar == 'F') {
+        return 6;
+    } else if (columnChar == 'G') {
+        return 7;
+    } else if (columnChar == 'H') {
+        return 8;
+    }
+    
+    return 0;
 }
