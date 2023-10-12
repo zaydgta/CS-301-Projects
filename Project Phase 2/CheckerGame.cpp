@@ -4,10 +4,13 @@
 #include "Player.h"
 #include "Piece.h"
 #include "Board.h"
+#include <stdlib.h>
 //#include "AI.h"
 
 // Main function
 int main() {    
+
+    system("Color 0A");
 
     // Variables
     int mode;
@@ -23,6 +26,7 @@ int main() {
     cout << "First select if you want to play against another player or against the AI." << endl;
     cout << "(Input 1 for Player vs Player or 2 for Player vs AI): ";
     cin >> mode;
+    
     
     // Creates a second player object or an AI object depending on user's input
     if (mode == 1){

@@ -9,7 +9,7 @@ Player::Player() {
 
     turn = true;
     win = false;
-	id = "Player";
+    id = "Player";
 }
 
 Player::Player(string ids) {
@@ -28,7 +28,7 @@ Player::~Player(){
 // Prompts the player to input their move
 void Player::userInput(){
     
-    int row, column;
+    int row, column, pieceID;
     char columnToConvert;
     Board board;
 
@@ -41,6 +41,9 @@ void Player::userInput(){
     column = charToInt(columnToConvert);
     
     // return the id of the piece that is at the square of the specified row and column number
+    Piece allPieces;
+    pieceID = allPieces.returnID(row, column, playerPieces);
+
 
 	cout << endl << "Please choose which square you want to move the piece to: " << endl;
 
@@ -50,9 +53,9 @@ void Player::userInput(){
     cout << endl;
 
     // update the row and column variables of the piece object with the specified id with the new row and column
+    allPieces.updatePiece(row, column, pieceID, playerPieces);
 
-
-	// Call the board again to update the whole board
+	// Call the board again to update the whole board with the new piece position
 
 
 	// End the player's turn
@@ -98,6 +101,20 @@ void Player::createPieces(bool playerOrder) {
         Piece piece10(10, playerId, 6, 4);
         Piece piece11(11, playerId, 6, 6);
         Piece piece12(12, playerId, 6, 8);
+
+        playerPieces.push_back(piece1);
+        playerPieces.push_back(piece2);
+        playerPieces.push_back(piece3);
+        playerPieces.push_back(piece4);
+        playerPieces.push_back(piece5);
+        playerPieces.push_back(piece6);
+        playerPieces.push_back(piece7);
+        playerPieces.push_back(piece8);
+        playerPieces.push_back(piece9);
+        playerPieces.push_back(piece10);
+        playerPieces.push_back(piece11);
+        playerPieces.push_back(piece12);
+
     } else if (playerOrder == false) {
         
         Piece piece1(1, playerId, 1, 2);
@@ -112,8 +129,20 @@ void Player::createPieces(bool playerOrder) {
         Piece piece10(10, playerId, 3, 4);
         Piece piece11(11, playerId, 3, 6);
         Piece piece12(12, playerId, 3, 8);
+
+        playerPieces.push_back(piece1);
+        playerPieces.push_back(piece2);
+        playerPieces.push_back(piece3);
+        playerPieces.push_back(piece4);
+        playerPieces.push_back(piece5);
+        playerPieces.push_back(piece6);
+        playerPieces.push_back(piece7);
+        playerPieces.push_back(piece8);
+        playerPieces.push_back(piece9);
+        playerPieces.push_back(piece10);
+        playerPieces.push_back(piece11);
+        playerPieces.push_back(piece12);
     }
-    
 }
 
 // Converts user input from char to int

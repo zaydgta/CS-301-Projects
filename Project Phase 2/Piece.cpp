@@ -15,7 +15,9 @@
 Piece::Piece() {
 
     id = 0;
-    label = "";
+    label = " ";
+    row = 0;
+    column = 0;
 }
 
 Piece::Piece(int ids, string labels, int rowNum, int columnNum){
@@ -29,4 +31,30 @@ Piece::Piece(int ids, string labels, int rowNum, int columnNum){
 // Piece class destructor
 Piece::~Piece(){
 
+}
+
+// Returns the id of the piece given the user's row and column
+int Piece::returnID(int row, int column, vector<Piece> pieces) {
+
+    int checkRow, checkColumn;
+
+    for (int i = 0; i < 12; i++) {
+        checkRow = pieces[i].row;
+        checkColumn = pieces[i].column;
+
+        if (checkRow == row && checkColumn == column) {
+            return pieces[i].id;
+        }
+    }
+}
+
+void Piece::updatePiece(int row, int column, int id, vector<Piece> pieces) {
+    
+    for (int i = 0; i < 12; i++) {
+        if (pieces[i].id == id) {
+            pieces[i].row = row;
+            pieces[i].column = column;
+            break;
+        }
+    }
 }

@@ -7,10 +7,12 @@
 #include "Board.h"
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 class Piece {
 public:
+
     // Class constructor
     Piece();
     Piece(int id, string label, int rowNum, int columnNum);
@@ -35,6 +37,9 @@ public:
     //Layer 4
     bool multipleJumpCheck();
     void promoteMove();
+
+    int returnID(int row, int column, vector<Piece> pieces);
+    void updatePiece(int row, int column, int id, vector<Piece> pieces);
 
 private:
 

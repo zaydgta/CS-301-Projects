@@ -7,6 +7,7 @@
 #include "Board.h"
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 // Player class
@@ -15,7 +16,7 @@ public:
 
 	// Class constructor
 	Player();
-	Player(std::string ids);
+	Player(string ids);
 
 	// Class destructor
 	~Player();
@@ -24,7 +25,7 @@ public:
 	void userInput();
 	void playerTurn();
 	bool playerWin();
-	std::string playerID();
+	string playerID();
 	void createPieces(bool playerOrder);
 	int charToInt(char columnChar);
 
@@ -33,7 +34,8 @@ private:
     // Variables for player
     bool turn;
     bool win;
-	std::string id;
+	string id;
+	vector<Piece> playerPieces;
 };
 
 #endif
