@@ -4,8 +4,6 @@
 #include "Piece.h"
 #include "Board.h"
 
-static int counter = 0; //NOT NEEDED, JUST FOR DEBUGGING
-
 // Player class constructor
 //CREATE THE LINESSSS
 //◯, ●,○, 
@@ -23,16 +21,33 @@ Board::~Board(){
 // Functions to do: position check, promote check, update board, 
 
 //Prints the current location of the pieces on the board
+//update one space before printing board
+//create lines for board (https://stackoverflow.com/questions/4471714/pretty-print-a-table-in-c)
+//color the board
 void Board::printBoard() {
-
-     for (int i=0; i < ROW; i++) {
-         
-         for (int x = 0; x < COL; x++) {
-             cout << board[i][x].value << " ";
-         }
-         
-         cout << endl;
-     }
+    
+    for (int i = 0; i < 1; i++)
+        {
+            cout << setw(2);
+            
+            for (int x=0; x < COL; x++)
+                cout << board[i][x].value << " |" << setw(2);
+            
+            cout << endl;    
+            cout << "---|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+        }
+    
+     for (int i = 1; i < ROW; i++)
+        {
+            cout << setw(2);
+            
+            for (int x=0; x < COL; x++)
+                cout << board[i][x].value << " |" << setw(2);
+            
+            cout << endl;    
+            cout << "---|--------------------------------" << endl;
+        }
+    cout << endl;
 }
 
 void Board::updateBoard(int rowOld, int columnOld, int rowNew, int columnNew, string pieceLabel) {
