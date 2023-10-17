@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Piece.h"
 #include "Board.h"
+//#include "color.hpp"
 
 // Player class constructor
 //CREATE THE LINESSSS

@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Piece.h"
 #include "Board.h"
+//#include "color.hpp"
 
 ////////////////////////////////////////////////////////
 
