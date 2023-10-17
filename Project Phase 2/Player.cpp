@@ -4,6 +4,7 @@
 #include "Piece.h"
 #include "Board.h"
 //#include "color.hpp"
+#include <stdlib.h>
 
 // Player class constructor
 Player::Player() {
@@ -28,6 +29,8 @@ Player::~Player(){
 // Player class functions
 // Prompts the player to input their move
 void Player::userInput(){
+
+    //system("Color 0A"); // debug
     
     int row, column, pieceID;
     char columnToConvert;
@@ -40,11 +43,13 @@ void Player::userInput(){
     cout << "Pick the checker piece you would like to move by inputting the row number and column letter(Ex: 3G): ";
 	cin >> row >> columnToConvert;
     column = charToInt(columnToConvert);
+    //cout << row << " " << column << endl; // debug
     
     // return the id of the piece that is at the square of the specified row and column number
     Piece allPieces;
     pieceID = allPieces.returnID(row, column, playerPieces);
-
+    
+    cout << "PieceID is " << pieceID << endl;
 
 	cout << endl << "Please choose which square you want to move the piece to: " << endl;
 
@@ -115,6 +120,8 @@ void Player::createPieces(bool playerOrder) {
         playerPieces.push_back(piece10);
         playerPieces.push_back(piece11);
         playerPieces.push_back(piece12);
+        
+        //cout << true << endl; //debug
 
     } else if (playerOrder == false) {
         
@@ -143,6 +150,8 @@ void Player::createPieces(bool playerOrder) {
         playerPieces.push_back(piece10);
         playerPieces.push_back(piece11);
         playerPieces.push_back(piece12);
+
+        //cout << false << endl; //debug
     }
 }
 
