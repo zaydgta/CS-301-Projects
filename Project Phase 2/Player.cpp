@@ -49,9 +49,9 @@ void Player::userInput(){
     Piece allPieces;
     pieceID = allPieces.returnID(row, column, playerPieces);
     
-    cout << "PieceID is " << pieceID << endl;
+    cout << "PieceID is " << pieceID << endl; // debug
 
-	cout << endl << "Please choose which square you want to move the piece to: " << endl;
+	cout << endl << "Please choose which square you want to move the piece to: ";
 
     cin >> row >> columnToConvert;
     column = charToInt(columnToConvert);
@@ -95,18 +95,18 @@ void Player::createPieces(bool playerOrder) {
 
     if (playerOrder == true) {
 
-        Piece piece1(1, playerId, 8, 2);
-        Piece piece2(2, playerId, 8, 4);
-        Piece piece3(3, playerId, 8, 6);
-        Piece piece4(4, playerId, 8, 8);
-        Piece piece5(5, playerId, 7, 1);
-        Piece piece6(6, playerId, 7, 3);
-        Piece piece7(7, playerId, 7, 5);
-        Piece piece8(8, playerId, 7, 7);
-        Piece piece9(9, playerId, 6, 2);
-        Piece piece10(10, playerId, 6, 4);
-        Piece piece11(11, playerId, 6, 6);
-        Piece piece12(12, playerId, 6, 8);
+        Piece piece1(1, playerId, 8, 1);
+        Piece piece2(2, playerId, 8, 3);
+        Piece piece3(3, playerId, 8, 5);
+        Piece piece4(4, playerId, 8, 7);
+        Piece piece5(5, playerId, 7, 2);
+        Piece piece6(6, playerId, 7, 4);
+        Piece piece7(7, playerId, 7, 6);
+        Piece piece8(8, playerId, 7, 8);
+        Piece piece9(9, playerId, 6, 1);
+        Piece piece10(10, playerId, 6, 3);
+        Piece piece11(11, playerId, 6, 5);
+        Piece piece12(12, playerId, 6, 7);
 
         playerPieces.push_back(piece1);
         playerPieces.push_back(piece2);
