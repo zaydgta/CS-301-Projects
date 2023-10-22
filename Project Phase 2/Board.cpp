@@ -1,29 +1,16 @@
 // This cpp file contains the implementation for the Board class type functions
 // Program libraries
 #include "Player.h"
-#include "Board.h"
 #include "Piece.h"
-using namespace std;
-
-const int ROW = 9;
-const int COL = 9;
+#include "Board.h"
+//#include "color.hpp"
 
 // Player class constructor
-// create the board
 //CREATE THE LINESSSS
 //◯, ●,○, 
 Board::Board() {
-
-    char board[ROW][COL] = { '0', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
-                             '1', '0', '0', '0', '0', '0', '0', '0', '0',
-                             '2', '0', '0', '0', '0', '0', '0', '0', '0',
-                             '3', '0', '0', '0', '0', '0', '0', '0', '0',
-                             '4', '0', '0', '0', '0', '0', '0', '0', '0',
-                             '5', '0', '0', '0', '0', '0', '0', '0', '0',
-                             '6', '0', '0', '0', '0', '0', '0', '0', '0',
-                             '7', '0', '0', '0', '0', '0', '0', '0', '0',
-                             '8', '0', '0', '0', '0', '0', '0', '0', '0' };
-
+    
+    board;
 }
 
 // Player class destructor
@@ -35,25 +22,55 @@ Board::~Board(){
 // Functions to do: position check, promote check, update board, 
 
 //Prints the current location of the pieces on the board
+//update one space before printing board
+//create lines for board (https://stackoverflow.com/questions/4471714/pretty-print-a-table-in-c)
+//color the board
 void Board::printBoard() {
-
-    for (int i = 0; i < ROW; i++) {
-        for (int x = 0; x < COL; x++) {
-            cout << board[i][x] << " " << endl;
+    
+    for (int i = 0; i < 1; i++)
+        {
+            cout << setw(2);
+            
+            for (int x=0; x < COL; x++)
+                cout << board[i][x].value << " |" << setw(2);
+            
+            cout << endl;    
+            cout << "---|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         }
-    }
+    
+     for (int i = 1; i < ROW; i++)
+        {
+            cout << setw(2);
+            
+            for (int x=0; x < COL; x++)
+                cout << board[i][x].value << " |" << setw(2);
+            
+            cout << endl;    
+            cout << "---|--------------------------------" << endl;
+        }
+    cout << endl;
+}
 
-    cout << "update board: COMPLETED" << endl;
+void Board::updateBoard(int rowOld, int columnOld, int rowNew, int columnNew, string pieceLabel) {
+    
+    if (pieceLabel == "Player 1")
+        board[rowOld][columnOld].value;
+
 }
 
 //Updates the position of the pieces after every turn 
-void positionCheck() {
+void Board::positionCheck() {
+    
     
 }
 
 //Removes a piece from the board
-void remove() {
+void Board::removePiece(int r, int c) {
+    
+    //if (board[r][c].status == 1)
+    //{
+        board[--r][--c].value = 'X'; //X is a placeholder
+        board[--r][--c].status = 0; //space is now empty
+    //}
     
 }
-
-//Checks the possible 

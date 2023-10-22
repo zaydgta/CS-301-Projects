@@ -2,12 +2,12 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-//#include "Piece.h";
-//#include "Board.h";
-
 // Program libraries
+#include "Player.h"
+#include "Board.h"
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 // Player class
@@ -26,15 +26,16 @@ public:
 	void playerTurn();
 	bool playerWin();
 	string playerID();
+	void createPieces(bool playerOrder);
+	int charToInt(char columnChar);
 
 private:
 
     // Variables for player
     bool turn;
     bool win;
-	char row;
-	char column;
 	string id;
+	vector<Piece> playerPieces;
 };
 
 #endif

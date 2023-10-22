@@ -1,19 +1,32 @@
 // This cpp file contains the implementation for the Piece class type functions
 // Program libraries
+#include "Player.h"
 #include "Piece.h"
-using namespace std;
+#include "Board.h"
+//#include "color.hpp"
+
+////////////////////////////////////////////////////////
+
+//What to do:
+// Make a function that returns the id of the piece based on the user's row and column
+// Make a function will access the piece at the given id to update its row and column of the piece
+////////////////////////////////////////////////////////
 
 // Piece class constructor
 Piece::Piece() {
 
     id = 0;
-    label = "";
+    label = " ";
+    row = 0;
+    column = 0;
 }
 
-Piece::Piece(int ids, string labels){
+Piece::Piece(int ids, string labels, int rowNum, int columnNum){
 
     id = ids;
     label = labels;
+    row = rowNum;
+    column = columnNum;
 }
 
 // Piece class destructor
@@ -21,21 +34,39 @@ Piece::~Piece(){
 
 }
 
-//Piece class createPiece function
-void createPieces(Player player){
+// Returns the id of the piece given the user's row and column
+int Piece::returnID(int row, int column, vector<Piece> pieces) {
+
+    int checkRow, checkColumn;
+
+    for (int i = 0; i < 12; i++) {
+        checkRow = pieces[i].row;
+        checkColumn = pieces[i].column;
+
+        cout << "Row in ID check is: " << checkRow << endl; // debug
+        cout << "Column in ID check is: " << checkColumn << endl; // debug
+
+        if (checkRow == row && checkColumn == column) {
+            cout << "ID in ID check is: " << pieces[i].id << endl; // debug
+            return pieces[i].id;
+            
+        }
+    }
+}
+
+void Piece::updatePiece(int row, int column, int id, vector<Piece> pieces) {
     
-    // Variables
-    string playerId = player.playerID();
-    Piece piece1(1, playerId);
-    Piece piece2(2, playerId);
-    Piece piece3(3, playerId);
-    Piece piece4(4, playerId);
-    Piece piece5(5, playerId);
-    Piece piece6(6, playerId);
-    Piece piece7(7, playerId);
-    Piece piece8(8, playerId);
-    Piece piece9(9, playerId);
-    Piece piece10(10, playerId);
-    Piece piece11(11, playerId);
-    Piece piece12(12, playerId);
+    for (int i = 0; i < 12; i++) {
+        cout << "ID in update piece before change is : " << pieces[i].id << endl; // debug
+        cout << "Row in update piece before change is : " << pieces[i].row << endl; // debug
+        cout << "Column in update piece before change is : " << pieces[i].column << endl; // debug
+        if (pieces[i].id == id) {
+            pieces[i].row = row;
+            pieces[i].column = column;
+            cout << "ID in update piece after change is : " << pieces[i].id << endl; // debug
+            cout << "Row in update piece after change is : " << pieces[i].row << endl; // debug
+            cout << "Column in update piece after change is : " << pieces[i].column << endl; // debug
+            break;
+        }
+    }
 }
