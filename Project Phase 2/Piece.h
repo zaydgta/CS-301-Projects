@@ -39,7 +39,10 @@ public:
     void promoteMove();
 
     int returnID(int row, int column, vector<Piece> pieces);
-    void updatePiece(int row, int column, int id, vector<Piece> pieces);
+    vector<Piece> updatePiece(int row, int column, int id, vector<Piece> pieces);
+    int returnRow(int pieceID, vector<Piece> pieces);
+    int returnColumn(int pieceID, vector<Piece> pieces);
+    string returnLabel(int pieceID, vector<Piece> pieces);
 
 private:
 

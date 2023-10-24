@@ -22,7 +22,7 @@ public:
 	~Player();
 
 	// Player functions
-	void userInput();
+	Board userInput(Board board);
 	void playerTurn();
 	bool playerWin();
 	string playerID();
