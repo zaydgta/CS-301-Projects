@@ -39,7 +39,7 @@ void Board::printBoard() {
                 cout << board[i][x].value << " |" << setw(2);
             
             cout << endl;    
-            cout << "---|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+            cout << "---|--------------------------------" << endl;
         }
     
      for (int i = 1; i < ROW; i++)
