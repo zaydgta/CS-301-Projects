@@ -27,7 +27,6 @@ public:
 	// Board functions
 	void printBoard();
     void updateBoard(int row1, int column1, int row2, int column2, string label);
-	void positionCheck();
 	void removePiece(int r, int c);
 	
 	//A struct that holds all the information of a space on the board 

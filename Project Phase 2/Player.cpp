@@ -44,13 +44,10 @@ Board Player::userInput(Board board){
     cout << "Pick the checker piece you would like to move by inputting the row number and column letter(Ex: 3G): ";
 	cin >> row1 >> columnToConvert1;
     column1 = charToInt(columnToConvert1);
-    //cout << row << " " << column << endl; // debug
     
     // return the id of the piece that is at the square of the specified row and column number
     Piece allPieces;
     pieceID = allPieces.returnID(row1, column1, playerPieces);
-    
-    //cout << "PieceID is " << pieceID << endl; // debug
 
 	cout << endl << "Please choose which square you want to move the piece to: ";
 
@@ -63,9 +60,7 @@ Board Player::userInput(Board board){
     playerPieces = allPieces.updatePiece(row2, column2, pieceID, playerPieces);
 
 	// Call the board again to update the whole board with the new piece position
-    //cout << "DEBUG FOR ROW 2 " << row2 << endl; //DEBUG
     row2 = allPieces.returnRow(pieceID, playerPieces);
-    //cout << "DEBUG FOR ROW 2 AGAIN " << row2 << endl; // DEBUG
     column2 = allPieces.returnColumn(pieceID, playerPieces);
     string label = allPieces.returnLabel(pieceID, playerPieces);
     board.updateBoard(row1, column1, row2, column2, label);
@@ -127,8 +122,6 @@ void Player::createPieces(bool playerOrder) {
         playerPieces.push_back(piece10);
         playerPieces.push_back(piece11);
         playerPieces.push_back(piece12);
-        
-        //cout << true << endl; //debug
 
     } else if (playerOrder == false) {
         
@@ -157,8 +150,6 @@ void Player::createPieces(bool playerOrder) {
         playerPieces.push_back(piece10);
         playerPieces.push_back(piece11);
         playerPieces.push_back(piece12);
-
-        //cout << false << endl; //debug
     }
 }
 

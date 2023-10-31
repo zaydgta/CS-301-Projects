@@ -21,23 +21,6 @@ public:
     ~Piece();
 
     // Piece functions
-    // Layer 1
-    void move();
-    void remove();
-
-    //Layer 2
-    bool promote();
-    void jump();
-
-    //Layer 3
-    bool moveCheck();
-    bool jumpCheck();
-    bool jumpedOver();
-
-    //Layer 4
-    bool multipleJumpCheck();
-    void promoteMove();
-
     int returnID(int row, int column, vector<Piece> pieces);
     vector<Piece> updatePiece(int row, int column, int id, vector<Piece> pieces);
     int returnRow(int pieceID, vector<Piece> pieces);
@@ -51,6 +34,5 @@ private:
     int row;
     int column;
 };
-
 
 #endif

@@ -5,9 +5,7 @@
 #include "Board.h"
 #include <windows.h>
 
-// Player class constructor
-//CREATE THE LINESSSS
-//◯, ●,○, 
+// Player class constructor 
 Board::Board() {
     
     board;
@@ -19,12 +17,7 @@ Board::~Board(){
 }
 
 // Board class functions
-// Functions to do: position check, promote check, update board, 
-
 //Prints the current location of the pieces on the board
-//update one space before printing board
-//create lines for board (https://stackoverflow.com/questions/4471714/pretty-print-a-table-in-c)
-//color the board
 void Board::printBoard() {
 
     // COLORING TEXT
@@ -71,29 +64,23 @@ void Board::printBoard() {
 void Board::updateBoard(int row1, int column1, int row2, int column2, string label) {
     
     // Updates previous location of the piece
-    //cout << "DEBUG 1: " << board[row1][column1].value << endl; // DEBUG
     board[row1][column1].value = ' ';
     board[row1][column1].status = false;
-    //cout << "DEBUG 2: " << board[row1][column1].value << endl; // DEBUG
 
     // Updates the new location of the piece
     if (label == "Player 1") {
         board[row2][column2].value = '0';
         board[row2][column2].player = true;
         board[row2][column2].status = true;
-        //cout << "DEBUG 3: " << board[row2][column2].value << endl; // DEBUG
     } else if (label == "Player 2") {
         board[row2][column2].value = '0';
         board[row2][column2].player = false;
         board[row2][column2].status = true;
-        //cout << "DEBUG 3: " << board[row2][column2].value << endl; // DEBUG
     }
 }
 
 //Updates the position of the pieces after every turn 
 void Board::positionCheck() {
-    
-    
 }
 
 //Removes a piece from the board

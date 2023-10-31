@@ -1,11 +1,9 @@
 // This cpp file contains the main function for the project
-
 // Program libraries
 #include "Player.h"
 #include "Piece.h"
 #include "Board.h"
 #include <windows.h>
-//#include "AI.h"
 
 // Main function
 int main() {    
@@ -18,7 +16,6 @@ int main() {
     int mode;
 	Player player1("Player 1");
     Player player2("Player 2");
-    //AI player2;
 	bool player1WinCheck = false, player2WinCheck = false;
     Board board;
     
@@ -37,7 +34,6 @@ int main() {
         player2.playerTurn();
     } else if (mode == 2){
         cout << endl << "You have selected Player vs AI." << endl;
-        //player2.AITurn();
     }
     
     // Prints out messages that give a small tutorial
