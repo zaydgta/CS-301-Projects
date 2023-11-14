@@ -1,3 +1,12 @@
+/***
+Title: <Heap.h>
+Author: <Nell Dale, Chip Weems, Tim Richards>
+Date: <11/14/2023>
+Code version: <Latest>
+Availability: <https://www.jblearning.com/catalog/productdetails/9781284089189>
+*
+***/
+
 template <class ItemType>
 void swap(ItemType& one, ItemType& two);
 

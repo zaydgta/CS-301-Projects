@@ -1,3 +1,12 @@
+/***
+Title: <PQType.h>
+Author: <Nell Dale, Chip Weems, Tim Richards>
+Date: <11/14/2023>
+Code version: <Latest>
+Availability: <https://www.jblearning.com/catalog/productdetails/9781284089189>
+*
+***/
+
 // Definition of class PQType, which represents the Priority Queue ADT
 class FullPQ{};
 class EmptyPQ{};
