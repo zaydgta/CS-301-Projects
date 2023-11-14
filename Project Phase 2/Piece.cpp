@@ -26,6 +26,10 @@ Piece::~Piece(){
 
 }
 
+bool Piece:: promote(){
+
+}
+
 // Returns the id of the piece given the user's row and column
 int Piece::returnID(int row, int column, vector<Piece> pieces) {
 
